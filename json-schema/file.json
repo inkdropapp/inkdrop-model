@@ -1,0 +1,81 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "File",
+  "description": "An attachment file",
+  "type": "object",
+  "properties": {
+    "_id": {
+      "description": "The unique document ID which should start with `file:` and the remains are randomly generated string",
+      "type": "string",
+      "minLength": 6,
+      "maxLength": 128,
+      "pattern": "^file:"
+    },
+    "_rev": {
+      "description": "This is a CouchDB specific field. The current MVCC-token/revision of this document (mandatory and immutable).",
+      "type": "string"
+    },
+    "name": {
+      "description": "The file name",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "createdAt": {
+      "description": "The date time when the note was created, represented with Unix timestamps in milliseconds",
+      "type": "number"
+    },
+    "contentType": {
+      "description": "The MIME type of the content",
+      "type": "string",
+      "enum": [
+        "image/png", "image/jpeg", "image/jpg", "image/svg", "image/gif"
+      ]
+    },
+    "contentLength": {
+      "description": "The content length of the file",
+      "type": "number"
+    },
+    "publicIn": {
+      "description": "An array of the note IDs where the file is included",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "_attachments": {
+      "description": "The attachment file",
+      "type": "object",
+      "properties": {
+        "index": {
+          "description": "The attachment file",
+          "type": "object",
+          "properties": {
+            "content_type": {
+              "description": "The content type of the file",
+              "type": "string",
+              "enum": [
+                "image/png", "image/jpeg", "image/jpg", "image/svg", "image/gif"
+              ]
+            },
+            "data": {
+              "description": "The file data",
+              "type": ["string", "object"]
+            }
+          },
+          "required": [ "content_type", "data" ]
+        }
+      },
+      "required": [ "index" ]
+    }
+  },
+  "required": [
+    "_id",
+    "name",
+    "createdAt",
+    "contentType",
+    "contentLength",
+    "publicIn",
+    "_attachments"
+  ]
+}

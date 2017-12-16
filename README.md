@@ -14,7 +14,7 @@ npm install inkdrop-model
 ### Flowtype
 
 ```javascript
-import type { Note, Book, Tag } from 'inkdrop-model'
+import type { Note, Book, Tag, File } from 'inkdrop-model'
 ```
 
 ### Json Schema
