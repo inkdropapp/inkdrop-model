@@ -1,6 +1,8 @@
 Inkdrop Model
 ==================
 
+Inkdrop data model definitions in json-schema and flowtype
+
 ## Install
 
 ```sh
@@ -18,6 +20,7 @@ import type { Note, Book, Tag } from 'inkdrop-model'
 ### Json Schema
 
 You can validate data with json schemas.
+Below example uses [ava](https://github.com/avajs/ava) as a validator:
 
 ```javascript
 import noteSchema from 'inkdrop-model/json-schema/note.json'
