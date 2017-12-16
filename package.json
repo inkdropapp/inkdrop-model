@@ -1,0 +1,43 @@
+{
+  "name": "inkdrop-model",
+  "version": "1.0.0",
+  "description": "Data model for Inkdrop",
+  "main": "src/index.js",
+  "scripts": {
+    "lint": "eslint src test",
+    "flow": "flow check",
+    "test": "ava",
+    "prepublishOnly": "npm run lint && npm run flow && npm run test"
+  },
+  "author": "Takuya Matsuyama <t@inkdrop.info>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/inkdropapp/inkdrop-model.git"
+  },
+  "devDependencies": {
+    "ajv": "^5.5.1",
+    "ava": "^0.24.0",
+    "babel": "^6.23.0",
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.0.3",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-flow": "^6.23.0",
+    "eslint": "^3.19.0",
+    "flow-bin": "^0.61.0",
+    "standard": "^10.0.3"
+  },
+  "dependencies": {},
+  "ava": {
+    "babel": {
+      "presets": [
+        "@ava/stage-4",
+        "flow"
+      ]
+    }
+  },
+  "keywords": [
+    "json-schema",
+    "flowtype"
+  ]
+}

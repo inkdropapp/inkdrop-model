@@ -1,0 +1,83 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Note",
+  "description": "A note data",
+  "type": "object",
+  "properties": {
+    "_id": {
+      "description": "The unique document ID which should start with `note:` and the remains are randomly generated string",
+      "type": "string",
+      "minLength": 6,
+      "maxLength": 128,
+      "pattern": "^note:"
+    },
+    "_rev": {
+      "description": "This is a CouchDB specific field. The current MVCC-token/revision of this document (mandatory and immutable).",
+      "type": "string"
+    },
+    "bookId": {
+      "description": "The notebook ID",
+      "type": "string",
+      "minLength": 6,
+      "maxLength": 128,
+      "pattern": "^book:"
+    },
+    "title": {
+      "description": "The note title",
+      "type": "string",
+      "maxLength": 128
+    },
+    "doctype": {
+      "description": "The format type of the body field. It currently can take markdown only, reserved for the future",
+      "type": "string",
+      "pattern": "^markdown$"
+    },
+    "body": {
+      "description": "The content of the note represented with Markdown",
+      "type": "string",
+      "maxLength": 1048576
+    },
+    "updatedAt": {
+      "description": "The date time when the note was last updated, represented with Unix timestamps in milliseconds",
+      "type": "number"
+    },
+    "createdAt": {
+      "description": "The date time when the note was created, represented with Unix timestamps in milliseconds",
+      "type": "number"
+    },
+    "tags": {
+      "description": "The list of tag IDs",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "migratedBy": {
+      "description": "The type of the data migration",
+      "type": "string"
+    },
+    "status": {
+      "description": "The status of the note",
+      "type": "string",
+      "enum": [
+        "none", "active", "onHold", "completed", "dropped"
+      ]
+    },
+    "share": {
+      "description": "The sharing mode of the note",
+      "type": "string",
+      "enum": [
+        "private", "public"
+      ]
+    }
+  },
+  "required": [
+    "_id",
+    "bookId",
+    "title",
+    "doctype",
+    "body",
+    "updatedAt",
+    "createdAt"
+  ]
+}
