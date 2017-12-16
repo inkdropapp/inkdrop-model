@@ -18,7 +18,7 @@ test('basic validation', t => {
     doctype: 'markdown',
     updatedAt: 1513330812556,
     createdAt: 1513214207639,
-    tags: [],
+    tags: [ 'tag:a28ca207' ],
     status: 'none',
     share: 'private',
     body: 'markdown note body',

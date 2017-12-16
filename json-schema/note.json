@@ -1,5 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
+  "id": "inkdrop/note",
   "title": "Note",
   "description": "A note data",
   "type": "object",
@@ -9,11 +10,13 @@
       "type": "string",
       "minLength": 6,
       "maxLength": 128,
-      "pattern": "^note:"
+      "pattern": "^note:",
+      "example": "note:Bkl_9Vubx"
     },
     "_rev": {
       "description": "This is a CouchDB specific field. The current MVCC-token/revision of this document (mandatory and immutable).",
-      "type": "string"
+      "type": "string",
+      "example": "14-813af5085bb6a2648c3f0aca37fc821f"
     },
     "bookId": {
       "description": "The notebook ID",
@@ -30,7 +33,7 @@
     "doctype": {
       "description": "The format type of the body field. It currently can take markdown only, reserved for the future",
       "type": "string",
-      "pattern": "^markdown$"
+      "enum": [ "markdown" ]
     },
     "body": {
       "description": "The content of the note represented with Markdown",
@@ -51,11 +54,13 @@
       "items": {
         "type": "string"
       },
-      "uniqueItems": true
+      "uniqueItems": true,
+      "example": [ "tag:a28ca207" ]
     },
     "migratedBy": {
       "description": "The type of the data migration",
-      "type": "string"
+      "type": "string",
+      "example": "migrateAddingParentBookId"
     },
     "status": {
       "description": "The status of the note",

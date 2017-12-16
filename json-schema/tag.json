@@ -1,5 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
+  "id": "inkdrop/tag",
   "title": "Tag",
   "description": "A note tag",
   "type": "object",
@@ -9,12 +10,13 @@
       "type": "string",
       "minLength": 6,
       "maxLength": 128,
-      "pattern": "^tag:"
+      "pattern": "^tag:",
+      "example": "tag:0ebd717b"
     },
     "_rev": {
       "description": "This is a CouchDB specific field. The current MVCC-token/revision of this document (mandatory and immutable)",
-
-      "type": "string"
+      "type": "string",
+      "example": "14-813af5085bb6a2648c3f0aca37fc821f"
     },
     "name": {
       "description": "The name of the tag",

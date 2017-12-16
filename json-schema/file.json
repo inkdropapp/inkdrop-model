@@ -1,5 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
+  "id": "inkdrop/file",
   "title": "File",
   "description": "An attachment file",
   "type": "object",
@@ -9,11 +10,13 @@
       "type": "string",
       "minLength": 6,
       "maxLength": 128,
-      "pattern": "^file:"
+      "pattern": "^file:",
+      "example": "file:By8_nQtce"
     },
     "_rev": {
       "description": "This is a CouchDB specific field. The current MVCC-token/revision of this document (mandatory and immutable).",
-      "type": "string"
+      "type": "string",
+      "example": "14-813af5085bb6a2648c3f0aca37fc821f"
     },
     "name": {
       "description": "The file name",
