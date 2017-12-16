@@ -3,6 +3,10 @@ Inkdrop Model
 
 Inkdrop data model definitions in json-schema and flowtype
 
+## Documentations
+
+Human readable definitions are [here](https://github.com/inkdropapp/inkdrop-model/tree/master/docs/schema.md).
+
 ## Install
 
 ```sh

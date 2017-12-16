@@ -7,6 +7,7 @@
     "lint": "eslint src test",
     "flow": "flow check",
     "test": "ava",
+    "doc": "prmd combine --meta docs/meta.json json-schema/ > schema.json && prmd doc schema.json > docs/schema.md && rm schema.json",
     "prepublishOnly": "npm run lint && npm run flow && npm run test"
   },
   "author": "Takuya Matsuyama <t@inkdrop.info>",
