@@ -16,19 +16,3 @@ export type File = {
   },
   md5digest?: string
 }
-
-/*
-
-  _id: Joi.string().required(),
-  _rev: Joi.string(),
-  name: Joi.string().min(1).required(),
-  createdAt: Joi.number().required(),
-  contentType: Joi.string(),
-  contentLength: Joi.number(),
-  publicIn: Joi.array().items(Joi.string()),
-  _attachments: Joi.object()
-      index: {
-        content_type: this.contentType,
-        data: buffer.toString('base64')
-      }
-*/
