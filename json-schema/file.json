@@ -41,7 +41,8 @@
       "type": "array",
       "items": {
         "type": "string"
-      }
+      },
+      "uniqueItems": true
     },
     "_attachments": {
       "description": "The attachment file",
