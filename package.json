@@ -4,13 +4,14 @@
   "description": "Data model for Inkdrop",
   "main": "lib/index.js",
   "scripts": {
-    "build": "babel src/ -d lib && flow-copy-source src lib",
-    "build:schema": "yaml2json -p -s yaml-schema/ && mv yaml-schema/*.json json-schema/",
+    "build": "npm-run-all build:*",
+    "build:lib": "babel src/ -d lib && flow-copy-source src lib",
+    "build:schema": "yaml2json -p -s yaml-schema/ && mkdir -p json-schema && mv yaml-schema/*.json json-schema/",
     "lint": "eslint src test",
     "flow": "flow check",
     "test": "ava",
     "doc": "prmd combine --meta docs/meta.json json-schema/ > schema.json && prmd doc schema.json > docs/schema.md && rm schema.json",
-    "prepublishOnly": "npm run build && npm run lint && npm run flow && npm run test"
+    "prepublishOnly": "npm-run-all build:* lint flow test"
   },
   "author": "Takuya Matsuyama <t@inkdrop.info>",
   "license": "MIT",
@@ -29,6 +30,7 @@
     "eslint": "^3.19.0",
     "flow-bin": "^0.61.0",
     "flow-copy-source": "^1.2.1",
+    "npm-run-all": "^4.1.2",
     "standard": "^10.0.3",
     "yamljs": "^0.3.0"
   },
