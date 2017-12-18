@@ -3,6 +3,6 @@ node_js:
   - 8
 before_script:
   - npm run lint
-  - npm run build:schema
+  - npm run build
+  - npm run build
   - npm run flow
-  - npm run build:lib
