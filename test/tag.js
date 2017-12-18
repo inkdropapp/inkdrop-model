@@ -1,13 +1,13 @@
 // @flow
-import type { Tag } from '../src'
-import tagSchema from '../json-schema/tag.json'
+import type { Tag } from '../lib'
+import { TagSchema } from '../lib'
 import test from 'ava'
 import Ajv from 'ajv'
 const ajv = new Ajv()
 let validate
 
 test('check schema', t => {
-  validate = ajv.compile(tagSchema)
+  validate = ajv.compile(TagSchema)
   t.is(typeof validate, 'function')
 })
 

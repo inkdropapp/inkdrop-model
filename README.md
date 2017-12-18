@@ -23,14 +23,18 @@ import type { Note, Book, Tag, File } from 'inkdrop-model'
 
 ### Json Schema
 
+```javascript
+import { NoteSchema, BookSchema, TagSchema, FileSchema } from 'inkdrop-model'
+```
+
 You can validate data with json schemas.
 Below example uses [ava](https://github.com/avajs/ava) as a validator:
 
 ```javascript
-import noteSchema from 'inkdrop-model/json-schema/note.json'
+import { NoteSchema } from 'inkdrop-model'
 import Ajv from 'ajv'
 const ajv = new Ajv()
-const validate = ajv.compile(noteSchema)
+const validate = ajv.compile(NoteSchema)
 
 const data = {
   _id: 'note:BkgOZZUJzf',

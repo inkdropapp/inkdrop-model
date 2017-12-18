@@ -1,4 +1,5 @@
 // @flow
+export const BookSchema = require('../json-schema/book.json')
 
 export type Book = {
   _id: string,

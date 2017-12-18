@@ -1,4 +1,5 @@
 // @flow
+export const FileSchema = require('../json-schema/file.json')
 
 export type File = {
   _id: string,

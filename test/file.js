@@ -1,13 +1,13 @@
 // @flow
-import type { File } from '../src'
-import fileSchema from '../json-schema/file.json'
+import type { File } from '../lib'
+import { FileSchema } from '../lib'
 import test from 'ava'
 import Ajv from 'ajv'
 const ajv = new Ajv()
 let validate
 
 test('check schema', t => {
-  validate = ajv.compile(fileSchema)
+  validate = ajv.compile(FileSchema)
   t.is(typeof validate, 'function')
 })
 

@@ -1,13 +1,13 @@
 // @flow
-import type { Note } from '../src'
-import noteSchema from '../json-schema/note.json'
+import type { Note } from '../lib'
+import { NoteSchema } from '../lib'
 import test from 'ava'
 import Ajv from 'ajv'
 const ajv = new Ajv()
 let validate
 
 test('check schema', t => {
-  validate = ajv.compile(noteSchema)
+  validate = ajv.compile(NoteSchema)
   t.is(typeof validate, 'function')
 })
 

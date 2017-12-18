@@ -2,9 +2,10 @@
   "name": "inkdrop-model",
   "version": "1.0.0",
   "description": "Data model for Inkdrop",
-  "main": "src/index.js",
+  "main": "lib/index.js",
   "scripts": {
-    "build": "yaml2json -p -s yaml-schema/ && mv yaml-schema/*.json json-schema/",
+    "build": "babel src/ -d lib && flow-copy-source src lib",
+    "build:schema": "yaml2json -p -s yaml-schema/ && mv yaml-schema/*.json json-schema/",
     "lint": "eslint src test",
     "flow": "flow check",
     "test": "ava",
@@ -27,6 +28,7 @@
     "babel-preset-flow": "^6.23.0",
     "eslint": "^3.19.0",
     "flow-bin": "^0.61.0",
+    "flow-copy-source": "^1.2.1",
     "standard": "^10.0.3",
     "yamljs": "^0.3.0"
   },
@@ -42,5 +44,9 @@
   "keywords": [
     "json-schema",
     "flowtype"
+  ],
+  "files": [
+    "lib",
+    "json-schema"
   ]
 }

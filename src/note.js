@@ -1,4 +1,5 @@
 // @flow
+export const NoteSchema = require('../json-schema/note.json')
 
 export type Note = {
   _id: string,

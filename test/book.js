@@ -1,13 +1,13 @@
 // @flow
-import type { Book } from '../src'
-import bookSchema from '../json-schema/book.json'
+import type { Book } from '../lib'
+import { BookSchema } from '../lib'
 import test from 'ava'
 import Ajv from 'ajv'
 const ajv = new Ajv()
 let validate
 
 test('check schema', t => {
-  validate = ajv.compile(bookSchema)
+  validate = ajv.compile(BookSchema)
   t.is(typeof validate, 'function')
 })
 

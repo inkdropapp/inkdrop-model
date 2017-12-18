@@ -1,4 +1,5 @@
 // @flow
+export const TagSchema = require('../json-schema/tag.json')
 
 export type Tag = {
   _id: string,
