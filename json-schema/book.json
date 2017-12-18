@@ -37,7 +37,10 @@
     },
     "parentBookId": {
       "description": "The ID of the parent notebook",
-      "type": ["string", "null"]
+      "type": [
+        "string",
+        "null"
+      ]
     }
   },
   "required": [

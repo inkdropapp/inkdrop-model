@@ -1,0 +1,54 @@
+$schema: 'http://json-schema.org/draft-06/schema#'
+id: inkdrop/tag
+title: Tag
+description: 'A note tag'
+type: object
+properties:
+  _id:
+    description: 'The unique tag ID which should start with `tag:` and the remains are randomly generated string'
+    type: string
+    minLength: 6
+    maxLength: 128
+    pattern: '^tag:'
+    example: 'tag:0ebd717b'
+  _rev:
+    description: 'This is a CouchDB specific field. The current MVCC-token/revision of this document (mandatory and immutable)'
+    type: string
+    example: 14-813af5085bb6a2648c3f0aca37fc821f
+  name:
+    description: 'The name of the tag'
+    type: string
+    maxLength: 64
+  count:
+    description: 'It indicates the number of notes with the tag'
+    type: number
+  color:
+    description: 'The color type of the tag'
+    type: string
+    enum:
+      - default
+      - red
+      - orange
+      - yellow
+      - olive
+      - green
+      - teal
+      - blue
+      - violet
+      - purple
+      - pink
+      - brown
+      - grey
+      - black
+  updatedAt:
+    description: 'The date time when the tag was last updated, represented with Unix timestamps in milliseconds'
+    type: number
+  createdAt:
+    description: 'The date time when the tag was created, represented with Unix timestamps in milliseconds'
+    type: number
+required:
+  - _id
+  - name
+  - count
+  - updatedAt
+  - createdAt

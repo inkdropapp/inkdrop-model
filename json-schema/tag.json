@@ -31,7 +31,20 @@
       "description": "The color type of the tag",
       "type": "string",
       "enum": [
-        "default", "red", "orange", "yellow", "olive", "green", "teal", "blue", "violet", "purple", "pink", "brown", "grey", "black"
+        "default",
+        "red",
+        "orange",
+        "yellow",
+        "olive",
+        "green",
+        "teal",
+        "blue",
+        "violet",
+        "purple",
+        "pink",
+        "brown",
+        "grey",
+        "black"
       ]
     },
     "updatedAt": {

@@ -32,7 +32,11 @@
       "description": "The MIME type of the content",
       "type": "string",
       "enum": [
-        "image/png", "image/jpeg", "image/jpg", "image/svg", "image/gif"
+        "image/png",
+        "image/jpeg",
+        "image/jpg",
+        "image/svg",
+        "image/gif"
       ]
     },
     "contentLength": {
@@ -59,18 +63,30 @@
               "description": "The content type of the file",
               "type": "string",
               "enum": [
-                "image/png", "image/jpeg", "image/jpg", "image/svg", "image/gif"
+                "image/png",
+                "image/jpeg",
+                "image/jpg",
+                "image/svg",
+                "image/gif"
               ]
             },
             "data": {
               "description": "The file data",
-              "type": ["string", "object"]
+              "type": [
+                "string",
+                "object"
+              ]
             }
           },
-          "required": [ "content_type", "data" ]
+          "required": [
+            "content_type",
+            "data"
+          ]
         }
       },
-      "required": [ "index" ]
+      "required": [
+        "index"
+      ]
     }
   },
   "required": [

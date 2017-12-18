@@ -33,7 +33,9 @@
     "doctype": {
       "description": "The format type of the body field. It currently can take markdown only, reserved for the future",
       "type": "string",
-      "enum": [ "markdown" ]
+      "enum": [
+        "markdown"
+      ]
     },
     "body": {
       "description": "The content of the note represented with Markdown",
@@ -55,7 +57,9 @@
         "type": "string"
       },
       "uniqueItems": true,
-      "example": [ "tag:a28ca207" ]
+      "example": [
+        "tag:a28ca207"
+      ]
     },
     "migratedBy": {
       "description": "The type of the data migration",
@@ -66,14 +70,19 @@
       "description": "The status of the note",
       "type": "string",
       "enum": [
-        "none", "active", "onHold", "completed", "dropped"
+        "none",
+        "active",
+        "onHold",
+        "completed",
+        "dropped"
       ]
     },
     "share": {
       "description": "The sharing mode of the note",
       "type": "string",
       "enum": [
-        "private", "public"
+        "private",
+        "public"
       ]
     }
   },
