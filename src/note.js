@@ -1,6 +1,9 @@
 // @flow
 export const NoteSchema = require('../json-schema/note.json')
 
+export type NoteStatus = 'none' | 'active' | 'onHold' | 'completed' | 'dropped'
+export type NoteVisibility = 'private' | 'public'
+
 export type Note = {
   _id: string,
   _rev?: string,
@@ -12,6 +15,6 @@ export type Note = {
   createdAt: number,
   tags?: string[],
   migratedBy?: string,
-  status?: 'none' | 'active' | 'onHold' | 'completed' | 'dropped',
-  share?: 'private' | 'public'
+  status?: NoteStatus,
+  share?: NoteVisibility
 }

@@ -1,6 +1,11 @@
 // @flow
 export const FileSchema = require('../json-schema/file.json')
 
+export type FileAttachmentItem = {
+  content_type: string,
+  data: Buffer | string
+}
+
 export type File = {
   _id: string,
   _rev?: string,
@@ -10,10 +15,7 @@ export type File = {
   contentLength: number,
   publicIn: string[],
   _attachments: {
-    index: {
-      content_type: string,
-      data: Buffer | string
-    }
+    index: FileAttachmentItem
   },
   md5digest?: string
 }
