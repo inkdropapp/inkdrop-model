@@ -1,5 +1,4 @@
-$schema: 'http://json-schema.org/draft-06/schema#'
-id: inkdrop/note
+$schema: 'http://json-schema.org/draft-07/schema#'
 title: Note
 description: 'A note data'
 type: object
