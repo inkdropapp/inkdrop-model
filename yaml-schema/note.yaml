@@ -17,9 +17,9 @@ properties:
   bookId:
     description: 'The notebook ID'
     type: string
-    minLength: 6
+    minLength: 5
     maxLength: 128
-    pattern: '^book:'
+    pattern: '^(book:|trash$)'
   title:
     description: 'The note title'
     type: string

@@ -1,5 +1,6 @@
 // @flow
 export const NoteSchema = require('../json-schema/note.json')
+export const TRASH_BOOK_ID = 'trash'
 
 export type NoteStatus = 'none' | 'active' | 'onHold' | 'completed' | 'dropped'
 export type NoteVisibility = 'private' | 'public'
