@@ -17,7 +17,7 @@ test('basic validation', t => {
     name: 'Dog.jpg',
     contentType: 'image/jpeg',
     contentLength: 13879,
-    publicIn: [ 'note:Bkl_9Vubx' ],
+    publicIn: ['note:Bkl_9Vubx'],
     _attachments: {
       index: {
         digest: 'md5-j+1LGuZoOdF1G5EFuv8+xA==',

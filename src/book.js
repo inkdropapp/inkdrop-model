@@ -8,5 +8,5 @@ export type Book = {
   updatedAt: number,
   createdAt: number,
   count?: number,
-  parentBookId?: null|string
+  parentBookId?: null | string
 }
