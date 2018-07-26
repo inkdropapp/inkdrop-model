@@ -50,8 +50,8 @@ properties:
   numOfTasks:
     description: 'The number of tasks, extracted from body'
     type: number
-  numOfCompletedTasks:
-    description: 'The number of completed tasks, extracted from body'
+  numOfCheckedTasks:
+    description: 'The number of checked tasks, extracted from body'
     type: number
   migratedBy:
     description: 'The type of the data migration'

@@ -24,7 +24,7 @@ test('basic validation', t => {
     body: 'markdown note body',
     bookId: 'book:first',
     numOfTasks: 0,
-    numOfCompletedTasks: 0,
+    numOfCheckedTasks: 0,
     _rev: '38-636e505958d24f9c21614d95ea03b5a1'
   }
   validate(data)
@@ -44,7 +44,7 @@ test('trashed note', t => {
     body: 'markdown note body',
     bookId: TRASH_BOOK_ID,
     numOfTasks: 0,
-    numOfCompletedTasks: 0,
+    numOfCheckedTasks: 0,
     _rev: '38-636e505958d24f9c21614d95ea03b5a1'
   }
   validate(data)

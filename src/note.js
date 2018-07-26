@@ -27,7 +27,7 @@ export type Note = {
   createdAt: number,
   tags?: string[],
   numOfTasks?: number,
-  numOfCompletedTasks?: number,
+  numOfCheckedTasks?: number,
   migratedBy?: string,
   status?: NoteStatus,
   share?: NoteVisibility
