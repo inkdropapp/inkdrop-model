@@ -13,7 +13,7 @@
     "doc": "bundle exec prmd combine --meta docs/meta.json json-schema/ > schema.json && bundle exec prmd doc schema.json > docs/schema.md && rm schema.json",
     "prepublishOnly": "npm-run-all build:* lint flow test"
   },
-  "author": "Takuya Matsuyama <t@inkdrop.info>",
+  "author": "Takuya Matsuyama <t@inkdrop.app>",
   "license": "MIT",
   "repository": {
     "type": "git",
