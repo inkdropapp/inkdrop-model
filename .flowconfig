@@ -1,2 +1,7 @@
-[version]
-^0.61.0
+[ignore]
+.*/node_modules/fbjs/flow/.*
+.*/node_modules/fbjs/.*/*.flow
+.*/node_modules/flux/flow/.*
+.*/node_modules/graphql/.*/*.flow
+.*/node_modules/conventional-changelog-core/.*
+.*/node_modules/immutable/.*
