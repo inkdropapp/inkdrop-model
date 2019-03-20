@@ -1,4 +1,5 @@
 $schema: 'http://json-schema.org/draft-07/schema#'
+id: tag
 title: Tag
 description: 'A note tag'
 type: object

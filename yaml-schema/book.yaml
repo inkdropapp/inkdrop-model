@@ -1,4 +1,5 @@
 $schema: 'http://json-schema.org/draft-07/schema#'
+id: book
 title: Book
 description: 'A notebook data'
 type: object
@@ -18,6 +19,7 @@ properties:
     description: 'The notebook name'
     type: string
     minLength: 1
+    maxLength: 64
   updatedAt:
     description: 'The date time when the notebook was last updated, represented with Unix timestamps in milliseconds'
     type: number

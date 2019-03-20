@@ -1,4 +1,5 @@
 $schema: 'http://json-schema.org/draft-07/schema#'
+id: file
 title: File
 description: 'An attachment file'
 type: object
@@ -31,6 +32,7 @@ properties:
       - image/jpg
       - image/svg
       - image/gif
+    maxLength: 128
   contentLength:
     description: 'The content length of the file'
     type: number

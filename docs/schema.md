@@ -12,7 +12,7 @@ A notebook data
 | **_rev** | *string* | This is a CouchDB specific field. The current MVCC-token/revision of this document (mandatory and immutable) | `"14-813af5085bb6a2648c3f0aca37fc821f"` |
 | **count** | *number* | It indicates the number of notes in the notebook | `42.0` |
 | **createdAt** | *number* | The date time when the notebook was created, represented with Unix timestamps in milliseconds | `42.0` |
-| **name** | *string* | The notebook name<br/> **Length:** `1..∞` | `"example"` |
+| **name** | *string* | The notebook name<br/> **Length:** `1..64` | `"example"` |
 | **parentBookId** | *nullable string* | The ID of the parent notebook | `null` |
 | **updatedAt** | *number* | The date time when the notebook was last updated, represented with Unix timestamps in milliseconds | `42.0` |
 
@@ -31,7 +31,7 @@ An attachment file
 | **_id** | *string* | The unique document ID which should start with `file:` and the remains are randomly generated string<br/> **pattern:** `^file:`<br/> **Length:** `6..128` | `"file:By8_nQtce"` |
 | **_rev** | *string* | This is a CouchDB specific field. The current MVCC-token/revision of this document (mandatory and immutable). | `"14-813af5085bb6a2648c3f0aca37fc821f"` |
 | **contentLength** | *number* | The content length of the file | `42.0` |
-| **contentType** | *string* | The MIME type of the content<br/> **one of:**`"image/png"` or `"image/jpeg"` or `"image/jpg"` or `"image/svg"` or `"image/gif"` | `"image/png"` |
+| **contentType** | *string* | The MIME type of the content<br/> **one of:**`"image/png"` or `"image/jpeg"` or `"image/jpg"` or `"image/svg"` or `"image/gif"`<br/> **Length:** `0..128` | `"image/png"` |
 | **createdAt** | *number* | The date time when the note was created, represented with Unix timestamps in milliseconds | `42.0` |
 | **name** | *string* | The file name<br/> **Length:** `1..128` | `"example"` |
 | **publicIn** | *array* | An array of the note IDs where the file is included | `[null]` |
@@ -49,10 +49,12 @@ A note data
 | **_id** | *string* | The unique document ID which should start with `note:` and the remains are randomly generated string<br/> **pattern:** `^note:`<br/> **Length:** `6..128` | `"note:Bkl_9Vubx"` |
 | **_rev** | *string* | This is a CouchDB specific field. The current MVCC-token/revision of this document (mandatory and immutable). | `"14-813af5085bb6a2648c3f0aca37fc821f"` |
 | **body** | *string* | The content of the note represented with Markdown<br/> **Length:** `0..1048576` | `"example"` |
-| **bookId** | *string* | The notebook ID<br/> **pattern:** `^book:`<br/> **Length:** `6..128` | `"example"` |
+| **bookId** | *string* | The notebook ID<br/> **pattern:** `^(book:|trash$)`<br/> **Length:** `5..128` | `"example"` |
 | **createdAt** | *number* | The date time when the note was created, represented with Unix timestamps in milliseconds | `42.0` |
 | **doctype** | *string* | The format type of the body field. It currently can take markdown only, reserved for the future<br/> **one of:**`"markdown"` | `"markdown"` |
-| **migratedBy** | *string* | The type of the data migration | `"migrateAddingParentBookId"` |
+| **migratedBy** | *string* | The type of the data migration<br/> **Length:** `0..128` | `"migrateAddingParentBookId"` |
+| **numOfCheckedTasks** | *number* | The number of checked tasks, extracted from body | `42.0` |
+| **numOfTasks** | *number* | The number of tasks, extracted from body | `42.0` |
 | **share** | *string* | The sharing mode of the note<br/> **one of:**`"private"` or `"public"` | `"private"` |
 | **status** | *string* | The status of the note<br/> **one of:**`"none"` or `"active"` or `"onHold"` or `"completed"` or `"dropped"` | `"none"` |
 | **tags** | *array* | The list of tag IDs | `["tag:a28ca207"]` |
