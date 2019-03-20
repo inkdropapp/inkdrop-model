@@ -22,6 +22,8 @@ jobs:
           - v1-dependencies-
 
       - run: npm install
+      - run: gem install bundler
+      - run: bundle install
 
       - save_cache:
           paths:
