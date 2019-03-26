@@ -1,4 +1,6 @@
 // @flow
+import type { EncryptedData } from './crypto'
+
 export const TagSchema = require('../json-schema/tag.json')
 export const TAG_COLOR = {
   DEFAULT: 'default',
@@ -33,12 +35,19 @@ export type TagColor =
   | 'grey'
   | 'black'
 
-export type Tag = {
+export type TagMetadata = {
   _id: string,
   _rev?: string,
-  name: string,
   count?: number,
   color: TagColor,
   updatedAt: number,
   createdAt: number
+}
+
+export type Tag = TagMetadata & {
+  name: string
+}
+
+export type EncryptedTag = TagMetadata & {
+  encryptedData: EncryptedData
 }

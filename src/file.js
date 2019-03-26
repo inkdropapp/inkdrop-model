@@ -1,4 +1,6 @@
 // @flow
+import type { EncryptionMetadata } from './crypto'
+
 export const FileSchema = require('../json-schema/file.json')
 export const SUPPORTED_FILE_CONTENT_TYPES = {
   IMAGE_PNG: 'image/png',
@@ -25,4 +27,8 @@ export type File = {
     index: FileAttachmentItem
   },
   md5digest?: string
+}
+
+export type EncryptedFile = File & {
+  encryptionData: EncryptionMetadata
 }

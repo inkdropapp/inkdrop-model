@@ -1,4 +1,6 @@
 // @flow
+import type { EncryptedData } from './crypto'
+
 export const NoteSchema = require('../json-schema/note.json')
 export const TRASH_BOOK_ID = 'trash'
 export const NOTE_STATUS = {
@@ -16,13 +18,11 @@ export const NOTE_VISIBILITY = {
 export type NoteStatus = 'none' | 'active' | 'onHold' | 'completed' | 'dropped'
 export type NoteVisibility = 'private' | 'public'
 
-export type Note = {
+export type NoteMetadata = {
   _id: string,
   _rev?: string,
   bookId: string,
-  title: string,
   doctype: string,
-  body: string,
   updatedAt: number,
   createdAt: number,
   tags?: string[],
@@ -31,4 +31,13 @@ export type Note = {
   migratedBy?: string,
   status?: NoteStatus,
   share?: NoteVisibility
+}
+
+export type Note = NoteMetadata & {
+  title: string,
+  body: string
+}
+
+export type EncryptedNote = NoteMetadata & {
+  encryptedData: EncryptedData
 }
