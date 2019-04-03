@@ -33,11 +33,13 @@ export type NoteMetadata = {
   share?: NoteVisibility
 }
 
-export type Note = NoteMetadata & {
+export type Note = {
+  ...$Exact<NoteMetadata>,
   title: string,
   body: string
 }
 
-export type EncryptedNote = NoteMetadata & {
+export type EncryptedNote = {
+  ...$Exact<NoteMetadata>,
   encryptedData: EncryptedData
 }
