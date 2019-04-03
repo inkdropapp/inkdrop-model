@@ -1,6 +1,6 @@
 {
   "name": "inkdrop-model",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "Data model for Inkdrop",
   "main": "lib/index.js",
   "scripts": {
