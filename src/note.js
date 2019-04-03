@@ -2,6 +2,7 @@
 import type { EncryptedData } from './crypto'
 
 export const NoteSchema = require('../json-schema/note.json')
+delete NoteSchema.id
 export const TRASH_BOOK_ID = 'trash'
 export const NOTE_STATUS = {
   NONE: 'none',

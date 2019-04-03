@@ -2,6 +2,7 @@
 import type { EncryptionMetadata } from './crypto'
 
 export const FileSchema = require('../json-schema/file.json')
+delete FileSchema.id
 export const SUPPORTED_FILE_CONTENT_TYPES = {
   IMAGE_PNG: 'image/png',
   IMAGE_JPEG: 'image/jpeg',

@@ -2,6 +2,7 @@
 import type { EncryptedData } from './crypto'
 
 export const TagSchema = require('../json-schema/tag.json')
+delete TagSchema.id
 export const TAG_COLOR = {
   DEFAULT: 'default',
   RED: 'red',

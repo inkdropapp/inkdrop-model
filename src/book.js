@@ -2,6 +2,7 @@
 import type { EncryptedData } from './crypto'
 
 export const BookSchema = require('../json-schema/book.json')
+delete BookSchema.id
 
 export type BookMetadata = {
   _id: string,
