@@ -3,22 +3,6 @@ import type { EncryptedData } from './crypto'
 
 export const TagSchema = require('../json-schema/tag.json')
 delete TagSchema.id
-export const TAG_COLOR = {
-  DEFAULT: 'default',
-  RED: 'red',
-  ORANGE: 'orange',
-  YELLOW: 'yellow',
-  OLIVE: 'olive',
-  GREEN: 'green',
-  TEAL: 'teal',
-  BLUE: 'blue',
-  VIOLET: 'violet',
-  PURPLE: 'purple',
-  PINK: 'pink',
-  BROWN: 'brown',
-  GREY: 'grey',
-  BLACK: 'black'
-}
 
 export type TagColor =
   | 'default'
@@ -35,6 +19,23 @@ export type TagColor =
   | 'brown'
   | 'grey'
   | 'black'
+
+export const TAG_COLOR: $ReadOnly<{ [string]: TagColor }> = {
+  DEFAULT: 'default',
+  RED: 'red',
+  ORANGE: 'orange',
+  YELLOW: 'yellow',
+  OLIVE: 'olive',
+  GREEN: 'green',
+  TEAL: 'teal',
+  BLUE: 'blue',
+  VIOLET: 'violet',
+  PURPLE: 'purple',
+  PINK: 'pink',
+  BROWN: 'brown',
+  GREY: 'grey',
+  BLACK: 'black'
+}
 
 export type TagMetadata = {
   _id: string,

@@ -3,16 +3,37 @@ import type { EncryptionMetadata } from './crypto'
 
 export const FileSchema = require('../json-schema/file.json')
 delete FileSchema.id
-export const SUPPORTED_FILE_CONTENT_TYPES = {
-  IMAGE_PNG: 'image/png',
-  IMAGE_JPEG: 'image/jpeg',
-  IMAGE_JPG: 'image/jpg',
-  IMAGE_SVG: 'image/svg',
-  IMAGE_GIF: 'image/gif'
+
+export type ImageFileType =
+  | 'image/png'
+  | 'image/jpeg'
+  | 'image/jpg'
+  | 'image/svg'
+  | 'image/gif'
+  | 'image/heic'
+  | 'image/heif'
+export const supportedImageFileTypes: ImageFileType[] = [
+  'image/png',
+  'image/jpeg',
+  'image/jpg',
+  'image/svg',
+  'image/gif',
+  'image/heic',
+  'image/heif'
+]
+export const SUPPORTED_IMAGE_MIME_TYPES: {
+  [string]: ImageFileType
+} = {
+  ...supportedImageFileTypes.reduce(
+    (hash, ft) => ({ ...hash, [ft.split('/')[1]]: ft }),
+    {}
+  ),
+  jpg: 'image/jpeg'
 }
+export const maxAttachmentFileSize: number = 10 * 1024 * 1024
 
 export type FileAttachmentItem = {
-  content_type: string,
+  content_type: ImageFileType,
   data: Buffer | string
 }
 
@@ -21,7 +42,7 @@ export type File = {
   _rev?: string,
   name: string,
   createdAt: number,
-  contentType: string,
+  contentType: ImageFileType,
   contentLength: number,
   publicIn: string[],
   _attachments: {

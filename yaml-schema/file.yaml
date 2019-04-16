@@ -32,6 +32,8 @@ properties:
       - image/jpg
       - image/svg
       - image/gif
+      - image/heic
+      - image/heif
     maxLength: 128
   contentLength:
     description: 'The content length of the file'
@@ -59,6 +61,8 @@ properties:
               - image/jpg
               - image/svg
               - image/gif
+              - image/heic
+              - image/heif
           data:
             description: 'The file data'
             type: [ string, object ]
