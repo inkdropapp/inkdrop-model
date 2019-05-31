@@ -30,7 +30,7 @@ properties:
       - image/png
       - image/jpeg
       - image/jpg
-      - image/svg
+      - image/svg+xml
       - image/gif
       - image/heic
       - image/heif
@@ -59,7 +59,7 @@ properties:
               - image/png
               - image/jpeg
               - image/jpg
-              - image/svg
+              - image/svg+xml
               - image/gif
               - image/heic
               - image/heif
