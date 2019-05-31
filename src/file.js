@@ -8,7 +8,7 @@ export type ImageFileType =
   | 'image/png'
   | 'image/jpeg'
   | 'image/jpg'
-  | 'image/svg'
+  | 'image/svg+xml'
   | 'image/gif'
   | 'image/heic'
   | 'image/heif'
@@ -16,7 +16,7 @@ export const supportedImageFileTypes: ImageFileType[] = [
   'image/png',
   'image/jpeg',
   'image/jpg',
-  'image/svg',
+  'image/svg+xml',
   'image/gif',
   'image/heic',
   'image/heif'
