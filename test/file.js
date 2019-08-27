@@ -1,6 +1,6 @@
 // @flow
 import type { File } from '../lib'
-import { FileSchema } from '../lib'
+import { FileSchema, validateFile } from '../lib'
 import test from 'ava'
 import Ajv from 'ajv'
 const ajv = new Ajv()
@@ -31,4 +31,6 @@ test('basic validation', t => {
   }
   const valid = validate(data)
   t.is(valid, true)
+  const valid2 = validateFile(data)
+  t.is(valid2, true)
 })

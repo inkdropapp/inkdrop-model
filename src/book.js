@@ -1,7 +1,8 @@
 // @flow
+import BookSchema from '../json-schema/book.json'
+import validateBook from '../validators/book.js'
 import type { EncryptedData } from './crypto'
 
-export const BookSchema = require('../json-schema/book.json')
 delete BookSchema.id
 
 export type BookMetadata = {
@@ -20,3 +21,5 @@ export type Book = BookMetadata & {
 export type EncryptedBook = BookMetadata & {
   encryptedData: EncryptedData
 }
+
+export { BookSchema, validateBook }

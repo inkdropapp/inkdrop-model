@@ -1,4 +1,6 @@
 // @flow
+import NoteSchema from '../json-schema/note.json'
+import validateNote from '../validators/note.js'
 import type { EncryptedData } from './crypto'
 
 export type TrashBookId = 'trash'
@@ -31,7 +33,6 @@ export type EncryptedNote = {
   encryptedData: EncryptedData
 }
 
-export const NoteSchema = require('../json-schema/note.json')
 delete NoteSchema.id
 export const TRASH_BOOK_ID = 'trash'
 
@@ -46,3 +47,5 @@ export const NOTE_VISIBILITY: $ReadOnly<{ [string]: NoteVisibility }> = {
   PRIVATE: 'private',
   PUBLIC: 'public'
 }
+
+export { NoteSchema, validateNote }

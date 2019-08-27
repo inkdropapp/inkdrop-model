@@ -1,7 +1,8 @@
 // @flow
+import FileSchema from '../json-schema/file.json'
+import validateFile from '../validators/file.js'
 import type { EncryptionMetadata } from './crypto'
 
-export const FileSchema = require('../json-schema/file.json')
 delete FileSchema.id
 
 export type ImageFileType =
@@ -54,3 +55,5 @@ export type File = {
 export type EncryptedFile = File & {
   encryptionData: EncryptionMetadata
 }
+
+export { FileSchema, validateFile }

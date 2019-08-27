@@ -1,6 +1,6 @@
 // @flow
 import type { Book } from '../lib'
-import { BookSchema } from '../lib'
+import { BookSchema, validateBook } from '../lib'
 import test from 'ava'
 import Ajv from 'ajv'
 const ajv = new Ajv()
@@ -24,4 +24,6 @@ test('basic validation', t => {
   }
   const valid = validate(data)
   t.is(valid, true)
+  const valid2 = validateBook(data)
+  t.is(valid2, true)
 })

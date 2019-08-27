@@ -1,7 +1,8 @@
 // @flow
+import TagSchema from '../json-schema/tag.json'
+import validateTag from '../validators/tag.js'
 import type { EncryptedData } from './crypto'
 
-export const TagSchema = require('../json-schema/tag.json')
 delete TagSchema.id
 
 export type TagColor =
@@ -53,3 +54,5 @@ export type Tag = TagMetadata & {
 export type EncryptedTag = TagMetadata & {
   encryptedData: EncryptedData
 }
+
+export { TagSchema, validateTag }
