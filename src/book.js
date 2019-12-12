@@ -14,11 +14,13 @@ export type BookMetadata = {
   parentBookId?: null | string
 }
 
-export type Book = BookMetadata & {
+export type Book = {
+  ...$Exact<BookMetadata>,
   name: string
 }
 
-export type EncryptedBook = BookMetadata & {
+export type EncryptedBook = {
+  ...$Exact<BookMetadata>,
   encryptedData: EncryptedData
 }
 

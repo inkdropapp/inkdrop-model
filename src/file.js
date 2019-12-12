@@ -52,7 +52,8 @@ export type File = {
   md5digest?: string
 }
 
-export type EncryptedFile = File & {
+export type EncryptedFile = {
+  ...$Exact<File>,
   encryptionData: EncryptionMetadata
 }
 

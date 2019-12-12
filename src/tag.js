@@ -47,11 +47,13 @@ export type TagMetadata = {
   createdAt: number
 }
 
-export type Tag = TagMetadata & {
+export type Tag = {
+  ...$Exact<TagMetadata>,
   name: string
 }
 
-export type EncryptedTag = TagMetadata & {
+export type EncryptedTag = {
+  ...$Exact<TagMetadata>,
   encryptedData: EncryptedData
 }
 

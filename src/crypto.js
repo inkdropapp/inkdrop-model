@@ -6,6 +6,7 @@ export type EncryptionMetadata = {
   tag: string
 }
 
-export type EncryptedData = EncryptionMetadata & {
+export type EncryptedData = {
+  ...$Exact<EncryptionMetadata>,
   content: string | Buffer
 }
