@@ -25,6 +25,7 @@ test('basic validation', t => {
     bookId: 'book:first',
     numOfTasks: 0,
     numOfCheckedTasks: 0,
+    pinned: false,
     _rev: '38-636e505958d24f9c21614d95ea03b5a1'
   }
   const valid = validate(data)
@@ -48,6 +49,7 @@ test('failure validation', t => {
     bookId: 'book:first',
     numOfTasks: 0,
     numOfCheckedTasks: 0,
+    pinned: true,
     _rev: '38-636e505958d24f9c21614d95ea03b5a1'
   }
   validateNote(data)

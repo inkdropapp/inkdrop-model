@@ -74,6 +74,9 @@ properties:
     enum:
       - private
       - public
+  pinned:
+    description: 'Whether the note is pinned to top'
+    type: boolean
 required:
   - _id
   - bookId

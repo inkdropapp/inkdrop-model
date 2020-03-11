@@ -19,7 +19,8 @@ export type NoteMetadata = {
   numOfCheckedTasks?: number,
   migratedBy?: string,
   status?: NoteStatus,
-  share?: NoteVisibility
+  share?: NoteVisibility,
+  pinned?: boolean
 }
 
 export type Note = {
