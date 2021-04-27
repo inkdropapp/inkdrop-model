@@ -16,3 +16,4 @@ rules:
       trailingComma: none
       singleQuote: true
       semi: false
+      arrowParens: avoid
