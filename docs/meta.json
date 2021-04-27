@@ -3,10 +3,10 @@
   "description": "Inkdrop data model definitions in json-schema and flowtype",
   "id": "inkdrop-model",
   "links": [{
-    "href": "https://www.inkdrop.info/",
+    "href": "https://www.inkdrop.app/",
     "rel": "self"
   }, {
-    "href": "https://doc.inkdrop.info.",
+    "href": "https://docs.inkdrop.app/",
     "rel": "documentations"
   }]
 }
