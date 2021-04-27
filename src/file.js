@@ -13,7 +13,7 @@ export type ImageFileType =
   | 'image/gif'
   | 'image/heic'
   | 'image/heif'
-export const supportedImageFileTypes: ImageFileType[] = [
+export const supportedImageFileTypes: $ReadOnlyArray<ImageFileType> = [
   'image/png',
   'image/jpeg',
   'image/jpg',
@@ -22,12 +22,12 @@ export const supportedImageFileTypes: ImageFileType[] = [
   'image/heic',
   'image/heif'
 ]
-export const SUPPORTED_IMAGE_MIME_TYPES: {
+export const SUPPORTED_IMAGE_MIME_TYPES: $ReadOnly<{
   [string]: ImageFileType
-} = {
+}> = {
   ...supportedImageFileTypes.reduce(
     (hash, ft) => ({ ...hash, [ft.split('/')[1]]: ft }),
-    {}
+    ({}: { [string]: ImageFileType })
   ),
   jpg: 'image/jpeg'
 }
