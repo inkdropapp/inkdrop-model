@@ -1,5 +1,5 @@
 $schema: 'http://json-schema.org/draft-07/schema#'
-id: file
+$id: file
 title: File
 description: 'An attachment file'
 type: object

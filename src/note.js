@@ -20,7 +20,8 @@ export type NoteMetadata = {
   migratedBy?: string,
   status?: NoteStatus,
   share?: NoteVisibility,
-  pinned?: boolean
+  pinned?: boolean,
+  _conflicts?: string[]
 }
 
 export type Note = {

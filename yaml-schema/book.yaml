@@ -1,5 +1,5 @@
 $schema: 'http://json-schema.org/draft-07/schema#'
-id: book
+$id: book
 title: Book
 description: 'A notebook data'
 type: object

@@ -1,5 +1,5 @@
 $schema: 'http://json-schema.org/draft-07/schema#'
-id: note
+$id: note
 title: Note
 description: 'A note data'
 type: object
@@ -77,6 +77,14 @@ properties:
   pinned:
     description: 'Whether the note is pinned to top'
     type: boolean
+  _conflicts:
+    description: 'Conflicted revisions'
+    type: array
+    items:
+      type: string
+    uniqueItems: true
+    example:
+      - '24-530ea621fb9b5b28b8ff4243e4235f01'
 required:
   - _id
   - bookId
