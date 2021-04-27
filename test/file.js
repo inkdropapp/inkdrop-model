@@ -3,7 +3,7 @@ import type { File } from '../lib'
 import { FileSchema, validateFile } from '../lib'
 import test from 'ava'
 import Ajv from 'ajv'
-const ajv = new Ajv()
+const ajv = new Ajv({ allowUnionTypes: true })
 let validate
 
 test('check schema', t => {

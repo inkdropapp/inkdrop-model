@@ -6,7 +6,7 @@
   "scripts": {
     "build": "npm-run-all build:* doc",
     "build:lib": "babel src/ -d lib && flow-copy-source src lib",
-    "build:schema": "yaml2json -p -s yaml-schema/ && mkdir -p json-schema && mv yaml-schema/*.json json-schema/ && ./compile_schema.sh",
+    "build:schema": "./compile_schema.sh",
     "lint": "eslint src test",
     "flow": "flow check",
     "test": "ava",

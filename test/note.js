@@ -6,12 +6,12 @@ import Ajv from 'ajv'
 const ajv = new Ajv()
 let validate
 
-test('check schema', t => {
+test.serial('check schema', t => {
   validate = ajv.compile(NoteSchema)
   t.is(typeof validate, 'function')
 })
 
-test('basic validation', t => {
+test.serial('basic validation', t => {
   const data: Note = {
     _id: 'note:BkgOZZUJzf',
     title: 'link',
@@ -35,7 +35,7 @@ test('basic validation', t => {
   t.is(valid2, true)
 })
 
-test('failure validation', t => {
+test.serial('failure validation', t => {
   const data: Object = {
     _id: 'invalid-note:BkgOZZUJzf',
     title: 0,
@@ -55,9 +55,9 @@ test('failure validation', t => {
   validateNote(data)
   t.deepEqual(validateNote.errors, [
     {
-      dataPath: '._id',
+      instancePath: '/_id',
       keyword: 'pattern',
-      message: 'should match pattern "^note:"',
+      message: 'must match pattern "^note:"',
       params: {
         pattern: '^note:'
       },
@@ -66,7 +66,7 @@ test('failure validation', t => {
   ])
 })
 
-test('trashed note', t => {
+test.serial('trashed note', t => {
   const data: Note = {
     _id: 'note:BkgOZZUJzf',
     title: 'link',
