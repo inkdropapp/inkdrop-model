@@ -38,6 +38,7 @@ properties:
   contentLength:
     description: 'The content length of the file'
     type: number
+    maximum: 10485760
   publicIn:
     description: 'An array of the note IDs where the file is included'
     type: array
