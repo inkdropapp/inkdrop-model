@@ -1,6 +1,6 @@
 // @flow
 import type { File } from '../lib'
-import { FileSchema, validateFile } from '../lib'
+import { FileSchema, validateFile, validationErrorsToMessage } from '../lib'
 import test from 'ava'
 import Ajv from 'ajv'
 const ajv = new Ajv({ allowUnionTypes: true })
@@ -70,4 +70,6 @@ test('too large image', t => {
   const valid2 = validateFile(data)
   t.is(valid2, false)
   t.log(validateFile.errors)
+  const errmsg = validationErrorsToMessage(validateFile.errors)
+  t.is(errmsg, '"/contentLength" must be <= 10485760')
 })
