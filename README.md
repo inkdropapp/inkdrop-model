@@ -1,7 +1,7 @@
 Inkdrop Model
 ==================
 
-Inkdrop data model definitions in json-schema and flowtype
+Inkdrop data model definitions in json-schema and TypeScript
 
 ## Documentations
 
