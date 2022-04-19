@@ -6,7 +6,7 @@
     "build": "npm-run-all build:* doc",
     "build:lib": "rollup -c && mv lib/src/* lib/ && rm -r lib/src",
     "build:schema": "./compile_schema.sh",
-    "lint": "eslint src",
+    "lint": "eslint src __tests__",
     "test": "jest --config jest.config.js",
     "doc": "./generate_doc.sh",
     "prepublishOnly": "npm-run-all build:* lint test"

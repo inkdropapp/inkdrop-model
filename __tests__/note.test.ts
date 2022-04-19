@@ -35,7 +35,7 @@ test('basic validation', () => {
 })
 
 test('failure validation', () => {
-  const data: Object = {
+  const data: Record<string, any> = {
     _id: 'invalid-note:BkgOZZUJzf',
     title: 0,
     doctype: 'not-markdown',
