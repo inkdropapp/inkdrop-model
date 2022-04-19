@@ -15,9 +15,9 @@ npm install inkdrop-model
 
 ## Usage
 
-### Flowtype
+### TypeScript
 
-```javascript
+```typescript
 import type { Note, Book, Tag, File } from 'inkdrop-model'
 ```
 
