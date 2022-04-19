@@ -17,9 +17,16 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
+      - name: Set up Ruby 2.6
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: 2.6
 
       - name: Install 🔧
-        run: npm install
+        run: |
+          gem install bundler
+          bundle install --jobs 4 --retry 3
+          npm install
 
       - name: Build 🏗️
         run: npm run build

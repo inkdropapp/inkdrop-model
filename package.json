@@ -3,7 +3,7 @@
   "version": "2.6.2",
   "description": "Data model for Inkdrop",
   "scripts": {
-    "build": "npm-run-all build:* doc",
+    "build": "npm-run-all build:schema build:lib doc",
     "build:lib": "rollup -c && mv lib/src/* lib/ && rm -r lib/src",
     "build:schema": "./compile_schema.sh",
     "lint": "eslint src __tests__",
