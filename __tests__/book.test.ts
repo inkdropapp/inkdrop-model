@@ -1,17 +1,15 @@
-// @flow
-import type { Book } from '../lib'
-import { BookSchema, validateBook } from '../lib'
-import test from 'ava'
+import type { Book } from '../src'
+import { BookSchema, validateBook } from '../src'
 import Ajv from 'ajv'
 const ajv = new Ajv()
-let validate
+let validate: any
 
-test('check schema', t => {
+test('check schema', () => {
   validate = ajv.compile(BookSchema)
-  t.is(typeof validate, 'function')
+  expect(typeof validate).toBe('function')
 })
 
-test('basic validation', t => {
+test('basic validation', () => {
   const data: Book = {
     updatedAt: 1494489037778,
     createdAt: 1494489037778,
@@ -23,7 +21,7 @@ test('basic validation', t => {
     _rev: '7-04b06614a08feaab9add6fc2e909148a'
   }
   const valid = validate(data)
-  t.is(valid, true)
+  expect(valid).toBe(true)
   const valid2 = validateBook(data)
-  t.is(valid2, true)
+  expect(valid2).toBe(true)
 })

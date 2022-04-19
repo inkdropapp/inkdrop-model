@@ -1,6 +1,6 @@
-// @flow
+import type { ErrorObject } from 'ajv'
 
-export function validationErrorsToMessage(errors: Object[]): string {
+export function validationErrorsToMessage(errors: ErrorObject[]): string {
   if (errors instanceof Array) {
     return errors
       .map(e => {
@@ -15,12 +15,11 @@ export function validationErrorsToMessage(errors: Object[]): string {
     return errors
   }
 }
-
 export class InvalidDataError extends Error {
-  name: string = 'InvalidDataError'
-  errors: Array<Object>
+  name = 'InvalidDataError'
+  errors: ErrorObject[]
 
-  constructor(message: string, errors: Array<Object>) {
+  constructor(message: string, errors: ErrorObject[]) {
     super(message + ' ' + validationErrorsToMessage(errors))
     this.errors = errors
   }

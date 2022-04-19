@@ -1,17 +1,16 @@
-// @flow
 import type { Note } from '../lib'
-import { NoteSchema, TRASH_BOOK_ID, validateNote } from '../lib'
-import test from 'ava'
+import { NoteSchema, TRASH_BOOK_ID, validateNote } from '../src'
 import Ajv from 'ajv'
-const ajv = new Ajv()
-let validate
 
-test.serial('check schema', t => {
+const ajv = new Ajv()
+let validate: any
+
+test('check schema', () => {
   validate = ajv.compile(NoteSchema)
-  t.is(typeof validate, 'function')
+  expect(typeof validate).toBe('function')
 })
 
-test.serial('basic validation', t => {
+test('basic validation', () => {
   const data: Note = {
     _id: 'note:BkgOZZUJzf',
     title: 'link',
@@ -29,13 +28,13 @@ test.serial('basic validation', t => {
     _rev: '38-636e505958d24f9c21614d95ea03b5a1'
   }
   const valid = validate(data)
-  t.is(valid, true)
-  t.is(validate.errors, null)
+  expect(valid).toBe(true)
+  expect(validate.errors).toBe(null)
   const valid2 = validateNote(data)
-  t.is(valid2, true)
+  expect(valid2).toBe(true)
 })
 
-test.serial('failure validation', t => {
+test('failure validation', () => {
   const data: Object = {
     _id: 'invalid-note:BkgOZZUJzf',
     title: 0,
@@ -53,7 +52,7 @@ test.serial('failure validation', t => {
     _rev: '38-636e505958d24f9c21614d95ea03b5a1'
   }
   validateNote(data)
-  t.deepEqual(validateNote.errors, [
+  expect(validateNote.errors).toEqual([
     {
       instancePath: '/_id',
       keyword: 'pattern',
@@ -66,7 +65,7 @@ test.serial('failure validation', t => {
   ])
 })
 
-test.serial('trashed note', t => {
+test('trashed note', () => {
   const data: Note = {
     _id: 'note:BkgOZZUJzf',
     title: 'link',
@@ -83,5 +82,5 @@ test.serial('trashed note', t => {
     _rev: '38-636e505958d24f9c21614d95ea03b5a1'
   }
   validate(data)
-  t.is(validate.errors, null)
+  expect(validate.errors).toBe(null)
 })

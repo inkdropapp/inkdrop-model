@@ -1,10 +1,7 @@
-// @flow
+import type { ValidateFunction } from 'ajv'
 import TagSchema from '../json-schema/tag.json'
-import validateTag from '../validators/tag.js'
+import validator from '../validators/tag'
 import type { EncryptedData } from './crypto'
-
-delete TagSchema.id
-
 export type TagColor =
   | 'default'
   | 'red'
@@ -20,8 +17,7 @@ export type TagColor =
   | 'brown'
   | 'grey'
   | 'black'
-
-export const TAG_COLOR: $ReadOnly<{ [string]: TagColor }> = {
+export const TAG_COLOR: { [color: string]: TagColor } = {
   DEFAULT: 'default',
   RED: 'red',
   ORANGE: 'orange',
@@ -37,24 +33,19 @@ export const TAG_COLOR: $ReadOnly<{ [string]: TagColor }> = {
   GREY: 'grey',
   BLACK: 'black'
 }
-
 export type TagMetadata = {
-  _id: string,
-  _rev?: string,
-  count?: number,
-  color: TagColor,
-  updatedAt: number,
+  _id: string
+  _rev?: string
+  count?: number
+  color: TagColor
+  updatedAt: number
   createdAt: number
 }
-
-export type Tag = {
-  ...$Exact<TagMetadata>,
+export type Tag = TagMetadata & {
   name: string
 }
-
-export type EncryptedTag = {
-  ...$Exact<TagMetadata>,
+export type EncryptedTag = TagMetadata & {
   encryptedData: EncryptedData
 }
-
+const validateTag: ValidateFunction<Tag> = validator
 export { TagSchema, validateTag }

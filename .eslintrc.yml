@@ -1,19 +1,11 @@
 root: true
-plugins:
-  - flowtype
-  - prettier
 extends:
-  - plugin:flowtype/recommended
-  - plugin:prettier/recommended
-parser: babel-eslint
-env: {}
-globals: {}
+  - plugin:@typescript-eslint/eslint-recommended
+  - plugin:@typescript-eslint/recommended
+  - prettier
+parser: "@typescript-eslint/parser"
+parserOptions:
+  ecmaVersion: 2018
+  sourceType: 'module'
 rules:
   no-useless-escape: 0
-  prettier/prettier:
-    - 2
-    -
-      trailingComma: none
-      singleQuote: true
-      semi: false
-      arrowParens: avoid

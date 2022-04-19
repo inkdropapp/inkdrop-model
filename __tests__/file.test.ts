@@ -1,17 +1,15 @@
-// @flow
-import type { File } from '../lib'
-import { FileSchema, validateFile, validationErrorsToMessage } from '../lib'
-import test from 'ava'
+import type { File } from '../src'
+import { FileSchema, validateFile, validationErrorsToMessage } from '../src'
 import Ajv from 'ajv'
 const ajv = new Ajv({ allowUnionTypes: true })
-let validate
+let validate: any
 
-test('check schema', t => {
+test('check schema', () => {
   validate = ajv.compile(FileSchema)
-  t.is(typeof validate, 'function')
+  expect(typeof validate).toBe('function')
 })
 
-test('basic validation', t => {
+test('basic validation', () => {
   const data: File = {
     createdAt: 1503124076660,
     name: 'Dog.jpg',
@@ -30,12 +28,12 @@ test('basic validation', t => {
     _rev: '14-813af5085bb6a2648c3f0aca37fc821f'
   }
   const valid = validate(data)
-  t.is(valid, true)
+  expect(valid).toBe(true)
   const valid2 = validateFile(data)
-  t.is(valid2, true)
+  expect(valid2).toBe(true)
 })
 
-test('too large image', t => {
+test('too large image', () => {
   const data: File = {
     createdAt: 1503124076660,
     name: 'Dog.jpg',
@@ -54,8 +52,8 @@ test('too large image', t => {
     _rev: '14-813af5085bb6a2648c3f0aca37fc821f'
   }
   const valid = validate(data)
-  t.is(valid, false)
-  t.deepEqual(validate.errors, [
+  expect(valid).toBe(false)
+  expect(validate.errors).toEqual([
     {
       instancePath: '/contentLength',
       keyword: 'maximum',
@@ -68,8 +66,11 @@ test('too large image', t => {
     }
   ])
   const valid2 = validateFile(data)
-  t.is(valid2, false)
-  t.log(validateFile.errors)
-  const errmsg = validationErrorsToMessage(validateFile.errors)
-  t.is(errmsg, '"/contentLength" must be <= 10485760')
+  expect(valid2).toBe(false)
+  const { errors } = validateFile
+  expect(typeof errors).toBe('object')
+  if (errors) {
+    const errmsg = validationErrorsToMessage(errors)
+    expect(errmsg).toBe('"/contentLength" must be <= 10485760')
+  }
 })

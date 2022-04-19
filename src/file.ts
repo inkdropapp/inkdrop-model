@@ -1,10 +1,7 @@
-// @flow
+import type { ValidateFunction } from 'ajv'
 import FileSchema from '../json-schema/file.json'
-import validateFile from '../validators/file.js'
+import validator from '../validators/file'
 import type { EncryptionMetadata } from './crypto'
-
-delete FileSchema.id
-
 export type ImageFileType =
   | 'image/png'
   | 'image/jpeg'
@@ -13,7 +10,7 @@ export type ImageFileType =
   | 'image/gif'
   | 'image/heic'
   | 'image/heif'
-export const supportedImageFileTypes: $ReadOnlyArray<ImageFileType> = [
+export const supportedImageFileTypes: ReadonlyArray<ImageFileType> = [
   'image/png',
   'image/jpeg',
   'image/jpg',
@@ -22,39 +19,37 @@ export const supportedImageFileTypes: $ReadOnlyArray<ImageFileType> = [
   'image/heic',
   'image/heif'
 ]
-export const SUPPORTED_IMAGE_MIME_TYPES: $ReadOnly<{
-  [string]: ImageFileType
-}> = {
+export const SUPPORTED_IMAGE_MIME_TYPES: {
+  readonly [mime: string]: ImageFileType
+} = {
   ...supportedImageFileTypes.reduce(
     (hash, ft) => ({ ...hash, [ft.split('/')[1]]: ft }),
-    ({}: { [string]: ImageFileType })
+    {} as Record<string, ImageFileType>
   ),
   jpg: 'image/jpeg'
 }
 export const maxAttachmentFileSize: number = 10 * 1024 * 1024
-
 export type FileAttachmentItem = {
-  content_type: ImageFileType,
+  digest?: string
+  content_type: ImageFileType
   data: Buffer | string
+  length?: number
 }
-
 export type File = {
-  _id: string,
-  _rev?: string,
-  name: string,
-  createdAt: number,
-  contentType: ImageFileType,
-  contentLength: number,
-  publicIn: string[],
+  _id: string
+  _rev?: string
+  name: string
+  createdAt: number
+  contentType: ImageFileType
+  contentLength: number
+  publicIn: string[]
   _attachments: {
     index: FileAttachmentItem
-  },
+  }
   md5digest?: string
 }
-
-export type EncryptedFile = {
-  ...$Exact<File>,
+export type EncryptedFile = File & {
   encryptionData: EncryptionMetadata
 }
-
+const validateFile: ValidateFunction<File> = validator
 export { FileSchema, validateFile }

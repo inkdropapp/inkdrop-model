@@ -1,17 +1,16 @@
-// @flow
 import type { Tag } from '../lib'
 import { TagSchema, validateTag } from '../lib'
-import test from 'ava'
 import Ajv from 'ajv'
-const ajv = new Ajv()
-let validate
 
-test('check schema', t => {
+const ajv = new Ajv()
+let validate: any
+
+test('check schema', () => {
   validate = ajv.compile(TagSchema)
-  t.is(typeof validate, 'function')
+  expect(typeof validate).toBe('function')
 })
 
-test('basic validation', t => {
+test('basic validation', () => {
   const data: Tag = {
     count: 3,
     color: 'green',
@@ -22,7 +21,7 @@ test('basic validation', t => {
     _rev: '5-caf95ffd831665119f6d4f01113cdab4'
   }
   const valid = validate(data)
-  t.is(valid, true)
+  expect(valid).toBe(true)
   const valid2 = validateTag(data)
-  t.is(valid2, true)
+  expect(valid2).toBe(true)
 })
