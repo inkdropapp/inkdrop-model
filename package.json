@@ -9,7 +9,7 @@
     "lint": "eslint src",
     "test": "jest --config jest.config.js",
     "doc": "./generate_doc.sh",
-    "prepublishOnly": "npm-run-all build:* lint flow test"
+    "prepublishOnly": "npm-run-all build:* lint test"
   },
   "author": "Takuya Matsuyama <t@inkdrop.app>",
   "license": "MIT",
@@ -41,8 +41,7 @@
   "unpkg": "lib/index.umd.js",
   "module": "lib/index.esm.js",
   "keywords": [
-    "json-schema",
-    "flowtype"
+    "json-schema"
   ],
   "files": [
     "lib",
