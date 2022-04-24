@@ -29,14 +29,24 @@ export type EncryptedNote = NoteMetadata & {
   encryptedData: EncryptedData
 }
 export const TRASH_BOOK_ID = 'trash'
-export const NOTE_STATUS: { [status: string]: NoteStatus } = {
+
+export const NOTE_STATUS: {
+  NONE: 'none'
+  ACTIVE: 'active'
+  ON_HOLD: 'onHold'
+  COMPLETED: 'completed'
+  DROPPED: 'dropped'
+} = {
   NONE: 'none',
   ACTIVE: 'active',
   ON_HOLD: 'onHold',
   COMPLETED: 'completed',
   DROPPED: 'dropped'
 }
-export const NOTE_VISIBILITY: { [visibility: string]: NoteVisibility } = {
+export const NOTE_VISIBILITY: {
+  PRIVATE: 'private'
+  PUBLIC: 'public'
+} = {
   PRIVATE: 'private',
   PUBLIC: 'public'
 }

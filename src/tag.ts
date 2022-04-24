@@ -17,7 +17,22 @@ export type TagColor =
   | 'brown'
   | 'grey'
   | 'black'
-export const TAG_COLOR: { [color: string]: TagColor } = {
+export const TAG_COLOR: {
+  DEFAULT: 'default'
+  RED: 'red'
+  ORANGE: 'orange'
+  YELLOW: 'yellow'
+  OLIVE: 'olive'
+  GREEN: 'green'
+  TEAL: 'teal'
+  BLUE: 'blue'
+  VIOLET: 'violet'
+  PURPLE: 'purple'
+  PINK: 'pink'
+  BROWN: 'brown'
+  GREY: 'grey'
+  BLACK: 'black'
+} = {
   DEFAULT: 'default',
   RED: 'red',
   ORANGE: 'orange',
