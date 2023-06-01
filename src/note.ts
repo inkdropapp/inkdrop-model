@@ -50,5 +50,5 @@ export const NOTE_VISIBILITY: {
   PRIVATE: 'private',
   PUBLIC: 'public'
 }
-const validateNote: ValidateFunction<Note> = validator
+const validateNote: ValidateFunction<Note> = validator as any
 export { NoteSchema, validateNote }

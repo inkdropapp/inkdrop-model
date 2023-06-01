@@ -1,8 +1,8 @@
 import path from 'path'
 import packageJson from './package.json'
 import typescript from 'rollup-plugin-typescript2'
-import resolve from '@rollup/plugin-node-resolve'
-import { terser } from 'rollup-plugin-terser'
+import terser from '@rollup/plugin-terser'
+import json from '@rollup/plugin-json'
 import localTypescript from 'typescript'
 
 const CONFIG_TYPESCRIPT = {
@@ -45,15 +45,11 @@ export default [
       }
     ],
     external: [
-      '../json-schema/note.json',
-      '../json-schema/book.json',
-      '../json-schema/tag.json',
-      '../json-schema/file.json',
       '../validators/note',
       '../validators/book',
       '../validators/tag',
       '../validators/file'
     ],
-    plugins: [resolve(), typescript(CONFIG_TYPESCRIPT)]
+    plugins: [json(), typescript(CONFIG_TYPESCRIPT)]
   }
 ]

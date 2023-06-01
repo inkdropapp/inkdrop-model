@@ -51,5 +51,5 @@ export type File = {
 export type EncryptedFile = File & {
   encryptionData: EncryptionMetadata
 }
-const validateFile: ValidateFunction<File> = validator
+const validateFile: ValidateFunction<File> = validator as any
 export { FileSchema, validateFile }

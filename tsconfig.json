@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "allowJs": true,
     "module": "esnext",
     "lib": ["dom", "esnext"],
     "esModuleInterop": true,

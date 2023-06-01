@@ -19,5 +19,5 @@ export type EncryptedBook = BookMetadata & {
   encryptedData: EncryptedData
 }
 
-const validateBook: ValidateFunction<Book> = validator
+const validateBook: ValidateFunction<Book> = validator as any
 export { BookSchema, validateBook }

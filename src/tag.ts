@@ -62,5 +62,5 @@ export type Tag = TagMetadata & {
 export type EncryptedTag = TagMetadata & {
   encryptedData: EncryptedData
 }
-const validateTag: ValidateFunction<Tag> = validator
+const validateTag: ValidateFunction<Tag> = validator as any
 export { TagSchema, validateTag }
