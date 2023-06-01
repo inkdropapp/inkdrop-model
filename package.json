@@ -38,7 +38,7 @@
     "yamljs": "^0.3.0"
   },
   "types": "lib/index.d.ts",
-  "main": "lib/index.umd.js",
+  "main": "lib/index.js",
   "unpkg": "lib/index.umd.js",
   "module": "lib/index.esm.js",
   "keywords": [
