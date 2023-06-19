@@ -30,23 +30,23 @@ export type EncryptedNote = NoteMetadata & {
 }
 export const TRASH_BOOK_ID = 'trash'
 
-export const NOTE_STATUS: {
+export const NOTE_STATUS: Readonly<{
   NONE: 'none'
   ACTIVE: 'active'
   ON_HOLD: 'onHold'
   COMPLETED: 'completed'
   DROPPED: 'dropped'
-} = {
+}> = {
   NONE: 'none',
   ACTIVE: 'active',
   ON_HOLD: 'onHold',
   COMPLETED: 'completed',
   DROPPED: 'dropped'
 }
-export const NOTE_VISIBILITY: {
+export const NOTE_VISIBILITY: Readonly<{
   PRIVATE: 'private'
   PUBLIC: 'public'
-} = {
+}> = {
   PRIVATE: 'private',
   PUBLIC: 'public'
 }

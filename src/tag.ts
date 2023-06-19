@@ -17,7 +17,7 @@ export type TagColor =
   | 'brown'
   | 'grey'
   | 'black'
-export const TAG_COLOR: {
+export const TAG_COLOR: Readonly<{
   DEFAULT: 'default'
   RED: 'red'
   ORANGE: 'orange'
@@ -32,7 +32,7 @@ export const TAG_COLOR: {
   BROWN: 'brown'
   GREY: 'grey'
   BLACK: 'black'
-} = {
+}> = {
   DEFAULT: 'default',
   RED: 'red',
   ORANGE: 'orange',
