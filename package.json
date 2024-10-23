@@ -1,6 +1,6 @@
 {
   "name": "inkdrop-model",
-  "version": "2.7.3",
+  "version": "2.8.0",
   "description": "Data model for Inkdrop",
   "scripts": {
     "build": "npm-run-all build:schema build:lib doc",
