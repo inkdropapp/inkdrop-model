@@ -25,7 +25,8 @@ test('basic validation', () => {
     numOfTasks: 0,
     numOfCheckedTasks: 0,
     pinned: false,
-    _rev: '38-636e505958d24f9c21614d95ea03b5a1'
+    _rev: '38-636e505958d24f9c21614d95ea03b5a1',
+    timestamp: 1513330812556
   }
   const valid = validate(data)
   expect(valid).toBe(true)
@@ -49,6 +50,7 @@ test('failure validation', () => {
     numOfTasks: 0,
     numOfCheckedTasks: 0,
     pinned: true,
+    timestamp: 1513330812556,
     _rev: '38-636e505958d24f9c21614d95ea03b5a1'
   }
   validateNote(data)
@@ -79,6 +81,7 @@ test('trashed note', () => {
     bookId: TRASH_BOOK_ID,
     numOfTasks: 0,
     numOfCheckedTasks: 0,
+    timestamp: 1513330812556,
     _rev: '38-636e505958d24f9c21614d95ea03b5a1'
   }
   validate(data)

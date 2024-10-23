@@ -37,9 +37,11 @@ properties:
   updatedAt:
     description: 'The date time when the note was last updated, represented with Unix timestamps in milliseconds'
     type: number
+    example: 1513330812556
   createdAt:
     description: 'The date time when the note was created, represented with Unix timestamps in milliseconds'
     type: number
+    example: 1513330812556
   tags:
     description: 'The list of tag IDs'
     type: array
@@ -77,6 +79,10 @@ properties:
   pinned:
     description: 'Whether the note is pinned to top'
     type: boolean
+  timestamp:
+    description: 'The date time when the revision was written, represented with Unix timestamps in milliseconds'
+    type: number
+    example: 1513330812556
   _conflicts:
     description: 'Conflicted revisions'
     type: array
@@ -93,3 +99,4 @@ required:
   - body
   - updatedAt
   - createdAt
+  - timestamp

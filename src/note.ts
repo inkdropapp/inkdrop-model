@@ -19,6 +19,7 @@ export type NoteMetadata = {
   status?: NoteStatus
   share?: NoteVisibility
   pinned?: boolean
+  timestamp: number
   _conflicts?: string[]
 }
 export type Note = NoteMetadata & {

@@ -72,7 +72,7 @@ A note data
 | **_rev** | *string* | This is a CouchDB specific field. The current MVCC-token/revision of this document (mandatory and immutable). | `"14-813af5085bb6a2648c3f0aca37fc821f"` |
 | **body** | *string* | The content of the note represented with Markdown<br/> **Length:** `0..1048576` | `"example"` |
 | **bookId** | *string* | The notebook ID<br/> **pattern:** <pre>^(book:&#x7c;trash$)</pre><br/> **Length:** `5..128` | `"example"` |
-| **createdAt** | *number* | The date time when the note was created, represented with Unix timestamps in milliseconds | `42.0` |
+| **createdAt** | *number* | The date time when the note was created, represented with Unix timestamps in milliseconds | `1513330812556` |
 | **doctype** | *string* | The format type of the body field. It currently can take markdown only, reserved for the future<br/> **one of:**`"markdown"` | `"markdown"` |
 | **migratedBy** | *string* | The type of the data migration<br/> **Length:** `0..128` | `"migrateAddingParentBookId"` |
 | **numOfCheckedTasks** | *number* | The number of checked tasks, extracted from body | `42.0` |
@@ -81,8 +81,9 @@ A note data
 | **share** | *string* | The sharing mode of the note<br/> **one of:**`"private"` or `"public"` | `"private"` |
 | **status** | *string* | The status of the note<br/> **one of:**`"none"` or `"active"` or `"onHold"` or `"completed"` or `"dropped"` | `"none"` |
 | **tags** | *array* | The list of tag IDs | `["tag:a28ca207"]` |
+| **timestamp** | *number* | The date time when the revision was written, represented with Unix timestamps in milliseconds | `1513330812556` |
 | **title** | *string* | The note title<br/> **Length:** `0..128` | `"example"` |
-| **updatedAt** | *number* | The date time when the note was last updated, represented with Unix timestamps in milliseconds | `42.0` |
+| **updatedAt** | *number* | The date time when the note was last updated, represented with Unix timestamps in milliseconds | `1513330812556` |
 
 </details>
 
