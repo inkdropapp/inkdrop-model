@@ -53,3 +53,5 @@ export const NOTE_VISIBILITY: Readonly<{
 }
 const validateNote: ValidateFunction<Note> = validator as any
 export { NoteSchema, validateNote }
+
+export const NOTE_TITLE_MAX_LENGTH: number = 256
