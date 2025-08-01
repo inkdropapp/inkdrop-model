@@ -24,7 +24,7 @@ properties:
   title:
     description: 'The note title'
     type: string
-    maxLength: 128
+    maxLength: 256
   doctype:
     description: 'The format type of the body field. It currently can take markdown only, reserved for the future'
     type: string

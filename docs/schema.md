@@ -82,7 +82,7 @@ A note data
 | **status** | *string* | The status of the note<br/> **one of:**`"none"` or `"active"` or `"onHold"` or `"completed"` or `"dropped"` | `"none"` |
 | **tags** | *array* | The list of tag IDs | `["tag:a28ca207"]` |
 | **timestamp** | *number* | The date time when the revision was written, represented with Unix timestamps in milliseconds | `1513330812556` |
-| **title** | *string* | The note title<br/> **Length:** `0..128` | `"example"` |
+| **title** | *string* | The note title<br/> **Length:** `0..256` | `"example"` |
 | **updatedAt** | *number* | The date time when the note was last updated, represented with Unix timestamps in milliseconds | `1513330812556` |
 
 </details>
