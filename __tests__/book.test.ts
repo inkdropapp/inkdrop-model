@@ -25,3 +25,68 @@ test('basic validation', () => {
   const valid2 = validateBook(data)
   expect(valid2).toBe(true)
 })
+
+describe('icon property', () => {
+  const baseBook: Book = {
+    updatedAt: 1494489037778,
+    createdAt: 1494489037778,
+    count: 6,
+    parentBookId: null,
+    name: 'Blog',
+    _id: 'book:9dc6a7a7-a0e4-4eeb-997c-32b385767dc2',
+    _rev: '7-04b06614a08feaab9add6fc2e909148a'
+  }
+
+  test('valid inline icon with svg', () => {
+    const data = {
+      ...baseBook,
+      icon: {
+        type: 'inline',
+        svg: '<svg></svg>'
+      }
+    }
+    expect(validate(data)).toBe(true)
+  })
+
+  test('valid file icon with docId', () => {
+    const data = {
+      ...baseBook,
+      icon: {
+        type: 'file',
+        docId: 'file:abc123'
+      }
+    }
+    expect(validate(data)).toBe(true)
+  })
+
+  test('invalid: inline icon missing svg', () => {
+    const data = {
+      ...baseBook,
+      icon: {
+        type: 'inline'
+      }
+    }
+    expect(validate(data)).toBe(false)
+  })
+
+  test('invalid: file icon missing docId', () => {
+    const data = {
+      ...baseBook,
+      icon: {
+        type: 'file'
+      }
+    }
+    expect(validate(data)).toBe(false)
+  })
+
+  test('invalid: file icon with invalid docId pattern', () => {
+    const data = {
+      ...baseBook,
+      icon: {
+        type: 'file',
+        docId: 'invalid-id'
+      }
+    }
+    expect(validate(data)).toBe(false)
+  })
+})

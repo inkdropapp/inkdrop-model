@@ -32,6 +32,35 @@ properties:
   parentBookId:
     description: 'The ID of the parent notebook'
     type: [string, 'null']
+  icon:
+    description: 'Custom icon for the notebook'
+    type: object
+    oneOf:
+      - properties:
+          type:
+            description: 'Icon storage type'
+            const: inline
+          svg:
+            description: 'The SVG icon data. Must be less than 256kb'
+            type: string
+            maxLength: 262144
+        required:
+          - type
+          - svg
+      - properties:
+          type:
+            description: 'Icon storage type'
+            const: file
+          docId:
+            description: 'The document ID for the attachment file'
+            type: string
+            pattern: '^file:'
+            minLength: 6
+            maxLength: 128
+        required:
+          - type
+          - docId
+
 required:
   - _id
   - name

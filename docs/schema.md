@@ -17,6 +17,7 @@ A notebook data
 | **_rev** | *string* | This is a CouchDB specific field. The current MVCC-token/revision of this document (mandatory and immutable) | `"14-813af5085bb6a2648c3f0aca37fc821f"` |
 | **count** | *number* | It indicates the number of notes in the notebook | `42.0` |
 | **createdAt** | *number* | The date time when the notebook was created, represented with Unix timestamps in milliseconds | `42.0` |
+| **icon** | *object* | Custom icon for the notebook |  |
 | **name** | *string* | The notebook name<br/> **Length:** `1..64` | `"example"` |
 | **parentBookId** | *nullable string* | The ID of the parent notebook | `null` |
 | **updatedAt** | *number* | The date time when the notebook was last updated, represented with Unix timestamps in milliseconds | `42.0` |
