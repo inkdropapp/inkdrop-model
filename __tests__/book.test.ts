@@ -38,7 +38,7 @@ describe('icon property', () => {
   }
 
   test('valid inline icon with svg', () => {
-    const data = {
+    const data: Book = {
       ...baseBook,
       icon: {
         type: 'inline',
@@ -49,7 +49,7 @@ describe('icon property', () => {
   })
 
   test('valid file icon with docId', () => {
-    const data = {
+    const data: Book = {
       ...baseBook,
       icon: {
         type: 'file',
