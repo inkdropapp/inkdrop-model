@@ -1,5 +1,4 @@
-Inkdrop Model
-==================
+# Inkdrop Model
 
 Inkdrop data model definitions in json-schema and TypeScript
 
@@ -12,6 +11,13 @@ Human readable definitions are [here](https://github.com/inkdropapp/inkdrop-mode
 ```sh
 npm install inkdrop-model
 ```
+
+## Models
+
+- **Note** - A markdown document with title, body, status, tags, and visibility settings
+- **Book** - A notebook for organizing notes, with support for nesting and custom icons
+- **Tag** - A label for categorizing notes, with customizable colors
+- **File** - An image attachment that can be embedded in notes
 
 ## Usage
 
@@ -52,4 +58,3 @@ const data = {
 const valid = validate(data)
 console.log(valid) // => true
 ```
-
