@@ -23,6 +23,7 @@ export type BookMetadata = {
   parentBookId?: null | string
   migratedBy?: string
   icon?: BookIcon
+  order?: number
 }
 export type Book = BookMetadata & {
   name: string
