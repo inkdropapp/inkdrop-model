@@ -32,6 +32,9 @@ properties:
   parentBookId:
     description: 'The ID of the parent notebook'
     type: [string, 'null']
+  order:
+    description: 'A number used to manually sort notebooks. Notebooks are ordered by this value in ascending order. If not specified, notebooks fall back to alphabetical sorting by name.'
+    type: number
   icon:
     description: 'Custom icon for the notebook'
     type: object
