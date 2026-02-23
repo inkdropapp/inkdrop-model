@@ -2,6 +2,7 @@ import type { ValidateFunction } from 'ajv'
 import FileSchema from '../json-schema/file.json'
 import validator from '../validators/file'
 import type { EncryptionMetadata } from './crypto'
+import { validateDocId } from './validator'
 export type ImageFileType =
   | 'image/png'
   | 'image/jpeg'
@@ -53,3 +54,7 @@ export type EncryptedFile = File & {
 }
 const validateFile: ValidateFunction<File> = validator as any
 export { FileSchema, validateFile }
+
+export function validateFileId(docId: string): boolean {
+  return validateDocId('file:', docId)
+}

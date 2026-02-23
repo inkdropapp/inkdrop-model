@@ -24,3 +24,10 @@ export class InvalidDataError extends Error {
     this.errors = errors
   }
 }
+
+export function validateDocId(prefix: string, docId: string): boolean {
+  if (!docId.startsWith(prefix) || docId.length <= 5 || docId.length > 128) {
+    throw new Error('Invalid document ID')
+  }
+  return true
+}

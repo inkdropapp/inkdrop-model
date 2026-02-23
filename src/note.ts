@@ -2,6 +2,7 @@ import type { ValidateFunction } from 'ajv'
 import NoteSchema from '../json-schema/note.json'
 import validator from '../validators/note'
 import type { EncryptedData } from './crypto'
+import { validateDocId } from './validator'
 export type TrashBookId = 'trash'
 export type NoteStatus = 'none' | 'active' | 'onHold' | 'completed' | 'dropped'
 export type NoteVisibility = 'private' | 'public'
@@ -55,3 +56,7 @@ const validateNote: ValidateFunction<Note> = validator as any
 export { NoteSchema, validateNote }
 
 export const NOTE_TITLE_MAX_LENGTH: number = 256
+
+export function validateNoteId(docId: string): boolean {
+  return validateDocId('note:', docId)
+}
