@@ -3,6 +3,7 @@ import BookSchema from '../json-schema/book.json'
 import validator from '../validators/book'
 
 import type { EncryptedData } from './crypto'
+import { createDocId } from './utils'
 import { validateDocId } from './validator'
 
 export type BookIconInline = {
@@ -33,9 +34,15 @@ export type EncryptedBook = BookMetadata & {
   encryptedData: EncryptedData
 }
 
+export const BOOK_DOCID_PREFIX = 'book:'
+
 const validateBook: ValidateFunction<Book> = validator as any
 export { BookSchema, validateBook }
 
+export function createBookId(): string {
+  return createDocId(BOOK_DOCID_PREFIX)
+}
+
 export function validateBookId(docId: string): boolean {
-  return validateDocId('book:', docId)
+  return validateDocId(BOOK_DOCID_PREFIX, docId)
 }

@@ -2,6 +2,7 @@ import type { ValidateFunction } from 'ajv'
 import NoteSchema from '../json-schema/note.json'
 import validator from '../validators/note'
 import type { EncryptedData } from './crypto'
+import { createDocId } from './utils'
 import { validateDocId } from './validator'
 export type TrashBookId = 'trash'
 export type NoteStatus = 'none' | 'active' | 'onHold' | 'completed' | 'dropped'
@@ -23,6 +24,7 @@ export type NoteMetadata = {
   timestamp: number
   _conflicts?: string[]
 }
+export const NOTE_DOCID_PREFIX = 'note:'
 export type Note = NoteMetadata & {
   title: string
   body: string
@@ -57,6 +59,10 @@ export { NoteSchema, validateNote }
 
 export const NOTE_TITLE_MAX_LENGTH: number = 256
 
+export function createNoteId(): string {
+  return createDocId(NOTE_DOCID_PREFIX)
+}
+
 export function validateNoteId(docId: string): boolean {
-  return validateDocId('note:', docId)
+  return validateDocId(NOTE_DOCID_PREFIX, docId)
 }

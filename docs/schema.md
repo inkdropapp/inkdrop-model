@@ -19,6 +19,7 @@ A notebook data
 | **createdAt** | *number* | The date time when the notebook was created, represented with Unix timestamps in milliseconds | `42.0` |
 | **icon** | *object* | Custom icon for the notebook |  |
 | **name** | *string* | The notebook name<br/> **Length:** `1..64` | `"example"` |
+| **order** | *number* | A number used to manually sort notebooks. Notebooks are ordered by this value in ascending order. If not specified, notebooks fall back to alphabetical sorting by name. | `42.0` |
 | **parentBookId** | *nullable string* | The ID of the parent notebook | `null` |
 | **updatedAt** | *number* | The date time when the notebook was last updated, represented with Unix timestamps in milliseconds | `42.0` |
 
