@@ -3,6 +3,7 @@ import packageJson from './package.json'
 import typescript from 'rollup-plugin-typescript2'
 import terser from '@rollup/plugin-terser'
 import json from '@rollup/plugin-json'
+import resolve from '@rollup/plugin-node-resolve'
 import localTypescript from 'typescript'
 
 const CONFIG_TYPESCRIPT = {
@@ -50,6 +51,6 @@ export default [
       '../validators/tag',
       '../validators/file'
     ],
-    plugins: [json(), typescript(CONFIG_TYPESCRIPT)]
+    plugins: [resolve(), json(), typescript(CONFIG_TYPESCRIPT)]
   }
 ]
