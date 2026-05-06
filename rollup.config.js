@@ -8,7 +8,9 @@ import localTypescript from 'typescript'
 
 const CONFIG_TYPESCRIPT = {
   tsconfig: 'tsconfig.json',
-  typescript: localTypescript
+  typescript: localTypescript,
+  include: ['*.ts', '**/*.ts', '*.tsx', '**/*.tsx', '**/*.cts', '**/*.mts'],
+  exclude: ['*.d.ts', '**/*.d.ts', '**/*.d.cts', '**/*.d.mts']
 }
 
 const kebabCaseToPascalCase = (string = '') => {
