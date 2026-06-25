@@ -42,6 +42,8 @@
   "main": "lib/index.js",
   "unpkg": "lib/index.umd.js",
   "module": "lib/index.esm.js",
+  "browser": "lib/index.browser.js",
+  "react-native": "lib/index.browser.js",
   "keywords": [
     "json-schema"
   ],
