@@ -6,8 +6,11 @@
     "esModuleInterop": true,
     "sourceMap": true,
     "strict": true,
-    "moduleResolution": "node",
+    "isolatedModules": true,
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
+    "rootDir": ".",
+    "types": ["node"],
     "noImplicitAny": false
   },
   "include": ["src/index.ts"],
