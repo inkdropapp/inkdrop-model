@@ -4,11 +4,12 @@
   "description": "Data model for Inkdrop",
   "scripts": {
     "build": "npm-run-all build:schema build:lib doc",
-    "build:lib": "rollup -c --bundleConfigAsCjs && mv lib/src/* lib/ && rm -r lib/src",
+    "build:lib": "rm -rf lib && tsdown",
     "build:schema": "./compile_schema.sh",
     "lint": "eslint src __tests__",
     "test": "jest --config jest.config.js",
     "doc": "./generate_doc.sh",
+    "typecheck": "tsc --noEmit",
     "prepublishOnly": "npm-run-all build:* lint test"
   },
   "author": "Takuya Matsuyama <t@inkdrop.app>",
@@ -19,10 +20,8 @@
     "url": "https://github.com/inkdropapp/inkdrop-model.git"
   },
   "devDependencies": {
-    "@rollup/plugin-json": "^6.1.0",
-    "@rollup/plugin-node-resolve": "^16.0.3",
-    "@rollup/plugin-terser": "^1.0.0",
     "@types/jest": "^30.0.0",
+    "@types/node": "^24.13.2",
     "ajv": "^8.18.0",
     "ajv-cli": "^5.0.0",
     "ajv-formats": "^3.0.1",
@@ -32,9 +31,8 @@
     "nanoid": "^5.1.6",
     "npm-run-all2": "^8.0.4",
     "prettier": "^3.8.1",
-    "rollup": "^4.59.0",
-    "rollup-plugin-typescript2": "^0.37.0",
     "ts-jest": "^29.4.6",
+    "tsdown": "0.22.3",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.56.0",
     "yaml": "^2.8.2"

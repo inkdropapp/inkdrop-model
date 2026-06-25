@@ -6,8 +6,6 @@
     "esModuleInterop": true,
     "sourceMap": true,
     "strict": true,
-    "declaration": true,
-    "declarationDir": ".",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "noImplicitAny": false
