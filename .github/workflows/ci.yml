@@ -32,8 +32,14 @@ jobs:
       - name: Build 🏗️
         run: pnpm run build
 
+      - name: Typecheck 🔎
+        run: pnpm run typecheck
+
       - name: Lint 🧐
         run: pnpm run lint
+
+      - name: Format 🎨
+        run: pnpm exec oxfmt --check
 
       - name: Test 🚨
         run: pnpm test
