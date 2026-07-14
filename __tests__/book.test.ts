@@ -1,6 +1,7 @@
 import type { Book } from '../src'
 import { BookSchema, validateBook } from '../src'
 import Ajv from 'ajv'
+import { describe, expect, test } from 'vitest'
 const ajv = new Ajv()
 let validate: any
 

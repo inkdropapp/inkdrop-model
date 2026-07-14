@@ -1,6 +1,7 @@
 import type { Tag } from '../lib'
 import { TagSchema, validateTag } from '../lib'
 import Ajv from 'ajv'
+import { expect, test } from 'vitest'
 
 const ajv = new Ajv()
 let validate: any

@@ -1,6 +1,7 @@
 import type { Note } from '../lib'
 import { NoteSchema, TRASH_BOOK_ID, validateNote } from '../src'
 import Ajv from 'ajv'
+import { expect, test } from 'vitest'
 
 const ajv = new Ajv()
 let validate: any
