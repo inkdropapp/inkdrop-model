@@ -1,5 +1,10 @@
 import type { Note } from '../lib'
-import { NoteSchema, TRASH_BOOK_ID, validateNote } from '../src'
+import {
+  NoteSchema,
+  TEMPLATE_BOOK_ID,
+  TRASH_BOOK_ID,
+  validateNote
+} from '../src'
 import Ajv from 'ajv'
 import { expect, test } from 'vitest'
 
@@ -87,4 +92,27 @@ test('trashed note', () => {
   }
   validate(data)
   expect(validate.errors).toBe(null)
+})
+
+test('template note', () => {
+  const data: Note = {
+    _id: 'note:BkgOZZUJzf',
+    title: 'link',
+    doctype: 'markdown',
+    updatedAt: 1513330812556,
+    createdAt: 1513214207639,
+    tags: ['tag:a28ca207'],
+    status: 'none',
+    share: 'private',
+    body: 'markdown note body',
+    bookId: TEMPLATE_BOOK_ID,
+    numOfTasks: 0,
+    numOfCheckedTasks: 0,
+    timestamp: 1513330812556,
+    _rev: '38-636e505958d24f9c21614d95ea03b5a1'
+  }
+  validate(data)
+  expect(validate.errors).toBe(null)
+  const valid = validateNote(data)
+  expect(valid).toBe(true)
 })

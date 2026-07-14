@@ -73,7 +73,7 @@ A note data
 | **_id** | *string* | The unique document ID which should start with `note:` and the remains are randomly generated string<br/> **pattern:** <pre>^note:</pre><br/> **Length:** `6..128` | `"example"` |
 | **_rev** | *string* | This is a CouchDB specific field. The current MVCC-token/revision of this document (mandatory and immutable). | `"example"` |
 | **body** | *string* | The content of the note represented with Markdown<br/> **Length:** `0..1048576` | `"example"` |
-| **bookId** | *string* | The notebook ID<br/> **pattern:** <pre>^(book:&#x7c;trash$)</pre><br/> **Length:** `5..128` | `"example"` |
+| **bookId** | *string* | The notebook ID<br/> **pattern:** <pre>^(book:&#x7c;trash$&#x7c;template$)</pre><br/> **Length:** `5..128` | `"example"` |
 | **createdAt** | *number* | The date time when the note was created, represented with Unix timestamps in milliseconds | `42.0` |
 | **doctype** | *string* | The format type of the body field. It currently can take markdown only, reserved for the future<br/> **one of:**`"markdown"` | `"markdown"` |
 | **migratedBy** | *string* | The type of the data migration<br/> **Length:** `0..128` | `"example"` |

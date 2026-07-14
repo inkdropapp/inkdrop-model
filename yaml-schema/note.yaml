@@ -20,7 +20,7 @@ properties:
     type: string
     minLength: 5
     maxLength: 128
-    pattern: '^(book:|trash$)'
+    pattern: '^(book:|trash$|template$)'
   title:
     description: 'The note title'
     type: string

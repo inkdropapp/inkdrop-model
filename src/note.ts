@@ -5,6 +5,7 @@ import type { EncryptedData } from './crypto'
 import { createDocId } from './utils'
 import { validateDocId } from './validator'
 export type TrashBookId = 'trash'
+export type TemplateBookId = 'template'
 export type NoteStatus = 'none' | 'active' | 'onHold' | 'completed' | 'dropped'
 export type NoteVisibility = 'private' | 'public'
 export type NoteMetadata = {
@@ -33,6 +34,7 @@ export type EncryptedNote = NoteMetadata & {
   encryptedData: EncryptedData
 }
 export const TRASH_BOOK_ID = 'trash'
+export const TEMPLATE_BOOK_ID = 'template'
 
 export const NOTE_STATUS: Readonly<{
   NONE: 'none'
