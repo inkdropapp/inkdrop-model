@@ -8,7 +8,7 @@
     "build:schema": "./compile_schema.sh",
     "lint": "oxlint",
     "format": "oxfmt",
-    "test": "vitest",
+    "test": "vitest --run",
     "doc": "./generate_doc.sh",
     "typecheck": "tsc --noEmit",
     "prepublishOnly": "npm-run-all build:* typecheck lint test"
