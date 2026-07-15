@@ -81,6 +81,7 @@ A note data
 | **numOfTasks** | *number* | The number of tasks, extracted from body | `42.0` |
 | **pinned** | *boolean* | Whether the note is pinned to top | `true` |
 | **share** | *string* | The sharing mode of the note<br/> **one of:**`"private"` or `"public"` | `"private"` |
+| **sourceTemplateId** | *string* | The source template note ID if the note is created from a template<br/> **pattern:** <pre>^note:</pre> | `"example"` |
 | **status** | *string* | The status of the note<br/> **one of:**`"none"` or `"active"` or `"onHold"` or `"completed"` or `"dropped"` | `"none"` |
 | **tags** | *array* | The list of tag IDs | `[null]` |
 | **timestamp** | *number* | The date time when the revision was written, represented with Unix timestamps in milliseconds | `42.0` |

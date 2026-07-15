@@ -22,6 +22,7 @@ export type NoteMetadata = {
   status?: NoteStatus
   share?: NoteVisibility
   pinned?: boolean
+  sourceTemplateId?: string
   timestamp: number
   _conflicts?: string[]
 }

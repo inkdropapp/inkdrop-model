@@ -79,6 +79,11 @@ properties:
   pinned:
     description: 'Whether the note is pinned to top'
     type: boolean
+  sourceTemplateId:
+    description: 'The source template note ID if the note is created from a template'
+    type: string
+    pattern: '^note:'
+    example: 'note:Bkl_9Vubx'
   timestamp:
     description: 'The date time when the revision was written, represented with Unix timestamps in milliseconds'
     type: number
