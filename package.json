@@ -15,7 +15,7 @@
   },
   "author": "Takuya Matsuyama <t@inkdrop.app>",
   "license": "MIT",
-  "packageManager": "pnpm@11.15.0",
+  "packageManager": "pnpm@11.15.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/inkdropapp/inkdrop-model.git"
