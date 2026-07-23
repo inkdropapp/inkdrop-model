@@ -28,7 +28,7 @@
     "nanoid": "^6.0.0",
     "npm-run-all2": "^9.0.2",
     "oxfmt": "0.60.0",
-    "oxlint": "1.73.0",
+    "oxlint": "1.75.0",
     "tsdown": "0.22.13",
     "typescript": "^6.0.3",
     "vitest": "^4.1.10",
