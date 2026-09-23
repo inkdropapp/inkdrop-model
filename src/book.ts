@@ -21,6 +21,7 @@ export type BookMetadata = {
   _rev?: string
   updatedAt: number
   createdAt: number
+  /** @deprecated */
   count?: number
   parentBookId?: null | string
   migratedBy?: string

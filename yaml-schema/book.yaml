@@ -26,9 +26,6 @@ properties:
   createdAt:
     description: 'The date time when the notebook was created, represented with Unix timestamps in milliseconds'
     type: number
-  count:
-    description: 'It indicates the number of notes in the notebook'
-    type: number
   parentBookId:
     description: 'The ID of the parent notebook'
     type: [string, 'null']

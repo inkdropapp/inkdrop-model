@@ -53,6 +53,7 @@ export const TAG_COLOR: Readonly<{
 export type TagMetadata = {
   _id: string
   _rev?: string
+  /** @deprecated */
   count?: number
   color: TagColor
   updatedAt: number

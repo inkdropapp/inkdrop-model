@@ -13,7 +13,6 @@ test('check schema', () => {
 
 test('basic validation', () => {
   const data: Tag = {
-    count: 3,
     color: 'green',
     createdAt: 1482130519215,
     updatedAt: 1493014639273,

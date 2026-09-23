@@ -15,7 +15,6 @@ A notebook data
 | ------- | ------- | ------- | ------- |
 | **_id** | *string* | The unique notebook ID which should start with `book:` and the remains are randomly generated string<br/> **pattern:** <pre>^book:</pre><br/> **Length:** `6..128` | `"example"` |
 | **_rev** | *string* | This is a CouchDB specific field. The current MVCC-token/revision of this document (mandatory and immutable) | `"example"` |
-| **count** | *number* | It indicates the number of notes in the notebook | `42.0` |
 | **createdAt** | *number* | The date time when the notebook was created, represented with Unix timestamps in milliseconds | `42.0` |
 | **icon** | *object* | Custom icon for the notebook |  |
 | **name** | *string* | The notebook name<br/> **Length:** `1..64` | `"example"` |
@@ -109,7 +108,6 @@ A note tag
 | **_id** | *string* | The unique tag ID which should start with `tag:` and the remains are randomly generated string<br/> **pattern:** <pre>^tag:</pre><br/> **Length:** `6..128` | `"example"` |
 | **_rev** | *string* | This is a CouchDB specific field. The current MVCC-token/revision of this document (mandatory and immutable) | `"example"` |
 | **color** | *string* | The color type of the tag<br/> **one of:**`"default"` or `"red"` or `"orange"` or `"yellow"` or `"olive"` or `"green"` or `"teal"` or `"blue"` or `"violet"` or `"purple"` or `"pink"` or `"brown"` or `"grey"` or `"black"` | `"default"` |
-| **count** | *number* | It indicates the number of notes with the tag | `42.0` |
 | **createdAt** | *number* | The date time when the tag was created, represented with Unix timestamps in milliseconds | `42.0` |
 | **name** | *string* | The name of the tag<br/> **Length:** `0..64` | `"example"` |
 | **updatedAt** | *number* | The date time when the tag was last updated, represented with Unix timestamps in milliseconds | `42.0` |

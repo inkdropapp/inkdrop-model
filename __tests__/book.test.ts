@@ -14,7 +14,6 @@ test('basic validation', () => {
   const data: Book = {
     updatedAt: 1494489037778,
     createdAt: 1494489037778,
-    count: 6,
     parentBookId: null,
     name: 'Blog',
     migratedBy: 'migrateAddingParentBookId',
@@ -31,7 +30,6 @@ describe('icon property', () => {
   const baseBook: Book = {
     updatedAt: 1494489037778,
     createdAt: 1494489037778,
-    count: 6,
     parentBookId: null,
     name: 'Blog',
     _id: 'book:9dc6a7a7-a0e4-4eeb-997c-32b385767dc2',
