@@ -66,3 +66,11 @@ export function createFileId(): string {
 export function validateFileId(docId: string): boolean {
   return validateDocId(FILE_DOCID_PREFIX, docId)
 }
+
+/**
+ * Whether the document ID belongs to a file, by its `file:` prefix. A cheap
+ * check for routing documents by type; use `validateFileId()` to validate the whole ID.
+ */
+export function isFileId(docId: string): boolean {
+  return docId.startsWith(FILE_DOCID_PREFIX)
+}

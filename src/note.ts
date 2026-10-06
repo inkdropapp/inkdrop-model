@@ -70,6 +70,14 @@ export function validateNoteId(docId: string): boolean {
   return validateDocId(NOTE_DOCID_PREFIX, docId)
 }
 
+/**
+ * Whether the document ID belongs to a note, by its `note:` prefix. A cheap
+ * check for routing documents by type; use `validateNoteId()` to validate the whole ID.
+ */
+export function isNoteId(docId: string): boolean {
+  return docId.startsWith(NOTE_DOCID_PREFIX)
+}
+
 /** Whether the note is in the trash */
 export function isNoteInTrash(note: Pick<NoteMetadata, 'bookId'>): boolean {
   return note.bookId === TRASH_BOOK_ID

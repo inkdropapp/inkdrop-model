@@ -78,3 +78,11 @@ export function createTagId(): string {
 export function validateTagId(docId: string): boolean {
   return validateDocId(TAG_DOCID_PREFIX, docId)
 }
+
+/**
+ * Whether the document ID belongs to a tag, by its `tag:` prefix. A cheap
+ * check for routing documents by type; use `validateTagId()` to validate the whole ID.
+ */
+export function isTagId(docId: string): boolean {
+  return docId.startsWith(TAG_DOCID_PREFIX)
+}

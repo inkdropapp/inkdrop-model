@@ -47,3 +47,11 @@ export function createBookId(): string {
 export function validateBookId(docId: string): boolean {
   return validateDocId(BOOK_DOCID_PREFIX, docId)
 }
+
+/**
+ * Whether the document ID belongs to a notebook, by its `book:` prefix. A cheap
+ * check for routing documents by type; use `validateBookId()` to validate the whole ID.
+ */
+export function isBookId(docId: string): boolean {
+  return docId.startsWith(BOOK_DOCID_PREFIX)
+}
