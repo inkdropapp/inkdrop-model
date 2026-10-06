@@ -3,6 +3,9 @@ import {
   NoteSchema,
   TEMPLATE_BOOK_ID,
   TRASH_BOOK_ID,
+  isNoteInTrash,
+  isOfficialTemplate,
+  isTemplateNote,
   validateNote
 } from '../src'
 import Ajv from 'ajv'
@@ -115,4 +118,18 @@ test('template note', () => {
   expect(validate.errors).toBe(null)
   const valid = validateNote(data)
   expect(valid).toBe(true)
+})
+
+test('note location helpers', () => {
+  expect(isNoteInTrash({ bookId: TRASH_BOOK_ID })).toBe(true)
+  expect(isNoteInTrash({ bookId: 'book:first' })).toBe(false)
+
+  expect(isTemplateNote({ bookId: TEMPLATE_BOOK_ID })).toBe(true)
+  expect(isTemplateNote({ bookId: 'book:first' })).toBe(false)
+
+  expect(isOfficialTemplate({ bookId: TEMPLATE_BOOK_ID })).toBe(true)
+  expect(isOfficialTemplate({ bookId: TEMPLATE_BOOK_ID, _rev: '1-abc' })).toBe(
+    false
+  )
+  expect(isOfficialTemplate({ bookId: 'book:first' })).toBe(false)
 })
