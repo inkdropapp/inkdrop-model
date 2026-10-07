@@ -82,8 +82,8 @@ export function isOfficialTemplate(
 }
 
 /**
- * Whether the note is shared publicly. A missing `share` means private; any
- * other value than `'private'`, including `null`, counts as shared.
+ * Whether the note is shared publicly. Only `'public'` counts as shared; a
+ * missing `share`, `null`, or any other value means private.
  */
 export function isNoteShared(note: { share?: string | null }): boolean {
   if (typeof note.share === 'undefined') {

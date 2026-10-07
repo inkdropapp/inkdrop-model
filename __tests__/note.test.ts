@@ -138,5 +138,5 @@ test('isNoteShared', () => {
   expect(isNoteShared({})).toBe(false)
   expect(isNoteShared({ share: 'private' })).toBe(false)
   expect(isNoteShared({ share: 'public' })).toBe(true)
-  expect(isNoteShared({ share: null })).toBe(true)
+  expect(isNoteShared({ share: null })).toBe(false)
 })
