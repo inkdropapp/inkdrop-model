@@ -34,18 +34,46 @@
     "vitest": "^5.0.3",
     "yaml": "^2.9.1"
   },
+  "peerDependencies": {
+    "ajv": "^8.20.0"
+  },
+  "peerDependenciesMeta": {
+    "ajv": {
+      "optional": true
+    }
+  },
   "types": "lib/index.d.ts",
   "main": "lib/index.js",
   "unpkg": "lib/index.umd.js",
   "module": "lib/index.esm.js",
   "browser": "lib/index.browser.js",
   "react-native": "lib/index.browser.js",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "react-native": "./lib/index.browser.js",
+      "browser": "./lib/index.browser.js",
+      "module": "./lib/index.esm.js",
+      "default": "./lib/index.js"
+    },
+    "./validators": {
+      "types": "./lib/validators.d.ts",
+      "react-native": "./lib/validators.browser.js",
+      "browser": "./lib/validators.browser.js",
+      "module": "./lib/validators.esm.js",
+      "default": "./lib/validators.js"
+    },
+    "./json-schema/*.json": "./json-schema/*.json",
+    "./package.json": "./package.json"
+  },
+  "sideEffects": false,
   "keywords": [
     "json-schema"
   ],
   "files": [
     "lib",
     "json-schema/*.json",
-    "validators"
+    "ajv-validators",
+    "validators/package.json"
   ]
 }

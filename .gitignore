@@ -1,5 +1,6 @@
 lib
 json-schema
 vendor
-validators
+ajv-validators
 node_modules
+validators/*.js

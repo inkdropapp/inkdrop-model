@@ -5,6 +5,13 @@ export function createDocId(prefix: string): string {
   return `${prefix}${id}`
 }
 
+export function isValidDocId(prefix: string, docId: string): boolean {
+  if (!docId.startsWith(prefix) || docId.length <= 5 || docId.length > 128) {
+    throw new Error('Invalid document ID')
+  }
+  return true
+}
+
 /**
  * Whether the document has conflicting revisions left by sync. Narrows
  * `_conflicts` to `string[]`, so it can be iterated directly.

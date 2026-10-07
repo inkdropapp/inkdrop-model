@@ -1,9 +1,5 @@
-import type { ValidateFunction } from 'ajv'
-import TagSchema from '../json-schema/tag'
-import validator from '../validators/tag'
 import type { EncryptedData } from './crypto'
-import { createDocId } from './utils'
-import { validateDocId } from './validator'
+import { createDocId, isValidDocId } from './utils'
 export type TagColor =
   | 'default'
   | 'red'
@@ -68,15 +64,12 @@ export type EncryptedTag = TagMetadata & {
 
 export const TAG_DOCID_PREFIX = 'tag:'
 
-const validateTag: ValidateFunction<Tag> = validator as any
-export { TagSchema, validateTag }
-
 export function createTagId(): string {
   return createDocId(TAG_DOCID_PREFIX)
 }
 
 export function validateTagId(docId: string): boolean {
-  return validateDocId(TAG_DOCID_PREFIX, docId)
+  return isValidDocId(TAG_DOCID_PREFIX, docId)
 }
 
 /**

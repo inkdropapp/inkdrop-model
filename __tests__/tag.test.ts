@@ -1,5 +1,5 @@
 import type { Tag } from '../lib'
-import { TagSchema, validateTag } from '../lib'
+import { TagSchema, validateTag } from '../lib/validators'
 import Ajv from 'ajv'
 import { expect, test } from 'vitest'
 

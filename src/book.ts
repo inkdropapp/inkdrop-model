@@ -1,10 +1,5 @@
-import type { ValidateFunction } from 'ajv'
-import BookSchema from '../json-schema/book'
-import validator from '../validators/book'
-
 import type { EncryptedData } from './crypto'
-import { createDocId } from './utils'
-import { validateDocId } from './validator'
+import { createDocId, isValidDocId } from './utils'
 
 export type BookIconInline = {
   type: 'inline'
@@ -39,15 +34,12 @@ export const BOOK_DOCID_PREFIX = 'book:'
 export const TRASH_BOOK_ID = 'trash'
 export const TEMPLATE_BOOK_ID = 'template'
 
-const validateBook: ValidateFunction<Book> = validator as any
-export { BookSchema, validateBook }
-
 export function createBookId(): string {
   return createDocId(BOOK_DOCID_PREFIX)
 }
 
 export function validateBookId(docId: string): boolean {
-  return validateDocId(BOOK_DOCID_PREFIX, docId)
+  return isValidDocId(BOOK_DOCID_PREFIX, docId)
 }
 
 /**

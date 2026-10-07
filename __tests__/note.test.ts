@@ -1,14 +1,13 @@
 import type { Note } from '../lib'
 import {
-  NoteSchema,
   TEMPLATE_BOOK_ID,
   TRASH_BOOK_ID,
   isNoteShared,
   isOfficialTemplate,
   isTemplateBookId,
-  isTrashBookId,
-  validateNote
+  isTrashBookId
 } from '../src'
+import { NoteSchema, validateNote } from '../src/validators'
 import Ajv from 'ajv'
 import { expect, test } from 'vitest'
 

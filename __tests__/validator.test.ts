@@ -4,7 +4,7 @@ import {
   InvalidDataError,
   validateNote,
   validationErrorsToMessage
-} from '../src'
+} from '../src/validators'
 import { expect, test } from 'vitest'
 
 test('enum error lists the allowed values', () => {

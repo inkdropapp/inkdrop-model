@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "main": "../lib/validators.js",
+  "module": "../lib/validators.esm.js",
+  "types": "../lib/validators.d.ts",
+  "browser": "../lib/validators.browser.js",
+  "react-native": "../lib/validators.browser.js",
+  "sideEffects": false
+}

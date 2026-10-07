@@ -1,5 +1,9 @@
 import type { File } from '../src'
-import { FileSchema, validateFile, validationErrorsToMessage } from '../src'
+import {
+  FileSchema,
+  validateFile,
+  validationErrorsToMessage
+} from '../src/validators'
 import Ajv from 'ajv'
 import { expect, test } from 'vitest'
 const ajv = new Ajv({ allowUnionTypes: true })

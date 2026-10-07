@@ -27,17 +27,28 @@ npm install inkdrop-model
 import type { Note, Book, Tag, File } from 'inkdrop-model'
 ```
 
-### Json Schema
+### Helpers
+
+The main entry has types, constants and small helpers, with no validators and no dependency on ajv:
+
+```typescript
+import { isNoteId, isTrashBookId, hasConflicts } from 'inkdrop-model'
+```
+
+### Json Schema and validators
+
+The schemas, the precompiled validators and the validation error helpers live in the `inkdrop-model/validators` entry. It requires [ajv](https://github.com/ajv-validator/ajv) v8 as a peer dependency:
 
 ```javascript
-import { NoteSchema, BookSchema, TagSchema, FileSchema } from 'inkdrop-model'
+import { NoteSchema, BookSchema, TagSchema, FileSchema } from 'inkdrop-model/validators'
+import { validateNote, InvalidDataError } from 'inkdrop-model/validators'
 ```
 
 You can validate data with json schemas.
 Below example uses [ajv](https://github.com/epoberezkin/ajv) as a validator:
 
 ```javascript
-import { NoteSchema } from 'inkdrop-model'
+import { NoteSchema } from 'inkdrop-model/validators'
 import Ajv from 'ajv'
 const ajv = new Ajv()
 const validate = ajv.compile(NoteSchema)

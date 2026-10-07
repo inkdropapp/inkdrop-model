@@ -17,6 +17,6 @@ for path in yaml-schema/*.yaml; do
   } > "json-schema/${filename}.ts"
 
   echo "compiling with ajv"
-  mkdir -p ./validators
-  ajv compile -s "json-schema/${filename}.json" -o "validators/${filename}.js" -c ajv-formats
+  mkdir -p ./ajv-validators
+  ajv compile -s "json-schema/${filename}.json" -o "ajv-validators/${filename}.js" -c ajv-formats
 done

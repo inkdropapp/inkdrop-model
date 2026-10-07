@@ -1,10 +1,6 @@
-import type { ValidateFunction } from 'ajv'
-import NoteSchema from '../json-schema/note'
-import validator from '../validators/note'
 import { isTemplateBookId } from './book'
 import type { EncryptedData } from './crypto'
-import { createDocId } from './utils'
-import { validateDocId } from './validator'
+import { createDocId, isValidDocId } from './utils'
 export type TrashBookId = 'trash'
 export type TemplateBookId = 'template'
 export type NoteStatus = 'none' | 'active' | 'onHold' | 'completed' | 'dropped'
@@ -56,8 +52,6 @@ export const NOTE_VISIBILITY: Readonly<{
   PRIVATE: 'private',
   PUBLIC: 'public'
 }
-const validateNote: ValidateFunction<Note> = validator as any
-export { NoteSchema, validateNote }
 
 export const NOTE_TITLE_MAX_LENGTH: number = 256
 
@@ -66,7 +60,7 @@ export function createNoteId(): string {
 }
 
 export function validateNoteId(docId: string): boolean {
-  return validateDocId(NOTE_DOCID_PREFIX, docId)
+  return isValidDocId(NOTE_DOCID_PREFIX, docId)
 }
 
 /**

@@ -1,20 +1,21 @@
 import { defineConfig } from 'tsdown'
 
 /**
- * The `../validators/*` modules are precompiled ajv validators shipped at the
- * package root (see the `validators` entry in `files`). They must stay external
- * so the bundle keeps the `../validators/*` requires and resolves them at
- * runtime — matching the previous Rollup build.
+ * The `../ajv-validators/*` modules are precompiled ajv validators shipped at
+ * the package root (see the `ajv-validators` entry in `files`). They must stay
+ * external so the bundle keeps the `../ajv-validators/*` requires and resolves
+ * them at runtime — matching the previous Rollup build. Only the `validators`
+ * entry imports them; the main `index` entry stays free of ajv.
  *
  * `ajv` is a type-only import here (`import type { ErrorObject }`), so it never
  * reaches the JS bundle. Keeping it external also stops the `.d.ts` bundler from
  * inlining ajv's types (and its CommonJS-dts `fast-uri` dependency), emitting a
  * plain `import { ErrorObject } from 'ajv'` like the previous build did.
  */
-const external = [/^\.\.\/validators\//, /^ajv(\/|$)/]
+const external = [/^\.\.\/ajv-validators\//, /^ajv(\/|$)/]
 
 const base = {
-  entry: ['src/index.ts'],
+  entry: { index: 'src/index.ts', validators: 'src/validators.ts' },
   outDir: 'lib',
   // Each config writes distinct filenames into the shared `lib/` dir, so cleaning
   // is done once by the `build:lib` script (`rm -rf lib`) instead of per config.
@@ -23,7 +24,7 @@ const base = {
 }
 
 export default defineConfig([
-  // CommonJS (package.json `main`) + the single bundled type declaration file.
+  // CommonJS (package.json `main`) + the bundled type declaration files.
   {
     ...base,
     format: ['cjs'],
@@ -41,9 +42,11 @@ export default defineConfig([
     sourcemap: true,
     outExtensions: () => ({ js: '.esm.js' })
   },
-  // UMD for CDN / `<script>` usage (package.json `unpkg`), minified.
+  // UMD for CDN / `<script>` usage (package.json `unpkg`), minified. UMD takes a
+  // single entry, so only the main entry is built.
   {
     ...base,
+    entry: ['src/index.ts'],
     format: ['umd'],
     platform: 'node',
     dts: false,

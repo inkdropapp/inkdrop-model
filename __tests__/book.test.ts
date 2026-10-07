@@ -1,5 +1,5 @@
 import type { Book } from '../src'
-import { BookSchema, validateBook } from '../src'
+import { BookSchema, validateBook } from '../src/validators'
 import Ajv from 'ajv'
 import { describe, expect, test } from 'vitest'
 const ajv = new Ajv()
