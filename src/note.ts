@@ -89,6 +89,6 @@ export function isNoteShared(note: { share?: string | null }): boolean {
   if (typeof note.share === 'undefined') {
     return false
   } else {
-    return note.share !== NOTE_VISIBILITY.PRIVATE
+    return note.share === NOTE_VISIBILITY.PUBLIC
   }
 }
