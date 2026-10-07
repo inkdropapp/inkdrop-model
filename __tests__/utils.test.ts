@@ -1,4 +1,4 @@
-import { expect, test } from 'vitest'
+import { expect, expectTypeOf, test } from 'vitest'
 
 import { hasConflicts, isBookId, isFileId, isNoteId, isTagId } from '../src'
 
@@ -18,4 +18,15 @@ test('hasConflicts', () => {
   expect(hasConflicts({ _conflicts: [] })).toBe(false)
   expect(hasConflicts({ _conflicts: null })).toBe(false)
   expect(hasConflicts({})).toBe(false)
+})
+
+test('hasConflicts narrows _conflicts', () => {
+  const doc: { _id: string; _conflicts?: string[] | null } = {
+    _id: 'note:BkgOZZUJzf',
+    _conflicts: ['2-abc']
+  }
+  if (hasConflicts(doc)) {
+    expectTypeOf(doc._conflicts).toEqualTypeOf<string[]>()
+    expectTypeOf(doc._id).toEqualTypeOf<string>()
+  }
 })
