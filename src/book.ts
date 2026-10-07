@@ -36,6 +36,8 @@ export type EncryptedBook = BookMetadata & {
 }
 
 export const BOOK_DOCID_PREFIX = 'book:'
+export const TRASH_BOOK_ID = 'trash'
+export const TEMPLATE_BOOK_ID = 'template'
 
 const validateBook: ValidateFunction<Book> = validator as any
 export { BookSchema, validateBook }
@@ -54,4 +56,14 @@ export function validateBookId(docId: string): boolean {
  */
 export function isBookId(docId: string): boolean {
   return docId.startsWith(BOOK_DOCID_PREFIX)
+}
+
+/** Whether the notebook ID is the trash pseudo-notebook */
+export function isTrashBookId(bookId: string): boolean {
+  return bookId === TRASH_BOOK_ID
+}
+
+/** Whether the notebook ID is the template pseudo-notebook */
+export function isTemplateBookId(bookId: string): boolean {
+  return bookId === TEMPLATE_BOOK_ID
 }

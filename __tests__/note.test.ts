@@ -3,9 +3,10 @@ import {
   NoteSchema,
   TEMPLATE_BOOK_ID,
   TRASH_BOOK_ID,
-  isNoteInTrash,
+  isNoteShared,
   isOfficialTemplate,
-  isTemplateNote,
+  isTemplateBookId,
+  isTrashBookId,
   validateNote
 } from '../src'
 import Ajv from 'ajv'
@@ -121,15 +122,22 @@ test('template note', () => {
 })
 
 test('note location helpers', () => {
-  expect(isNoteInTrash({ bookId: TRASH_BOOK_ID })).toBe(true)
-  expect(isNoteInTrash({ bookId: 'book:first' })).toBe(false)
+  expect(isTrashBookId(TRASH_BOOK_ID)).toBe(true)
+  expect(isTrashBookId('book:first')).toBe(false)
 
-  expect(isTemplateNote({ bookId: TEMPLATE_BOOK_ID })).toBe(true)
-  expect(isTemplateNote({ bookId: 'book:first' })).toBe(false)
+  expect(isTemplateBookId(TEMPLATE_BOOK_ID)).toBe(true)
+  expect(isTemplateBookId('book:first')).toBe(false)
 
   expect(isOfficialTemplate({ bookId: TEMPLATE_BOOK_ID })).toBe(true)
   expect(isOfficialTemplate({ bookId: TEMPLATE_BOOK_ID, _rev: '1-abc' })).toBe(
     false
   )
   expect(isOfficialTemplate({ bookId: 'book:first' })).toBe(false)
+})
+
+test('isNoteShared', () => {
+  expect(isNoteShared({})).toBe(false)
+  expect(isNoteShared({ share: 'private' })).toBe(false)
+  expect(isNoteShared({ share: 'public' })).toBe(true)
+  expect(isNoteShared({ share: null })).toBe(true)
 })

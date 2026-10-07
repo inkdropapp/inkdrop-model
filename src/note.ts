@@ -1,6 +1,7 @@
 import type { ValidateFunction } from 'ajv'
 import NoteSchema from '../json-schema/note.json'
 import validator from '../validators/note'
+import { isTemplateBookId } from './book'
 import type { EncryptedData } from './crypto'
 import { createDocId } from './utils'
 import { validateDocId } from './validator'
@@ -34,8 +35,6 @@ export type Note = NoteMetadata & {
 export type EncryptedNote = NoteMetadata & {
   encryptedData: EncryptedData
 }
-export const TRASH_BOOK_ID = 'trash'
-export const TEMPLATE_BOOK_ID = 'template'
 
 export const NOTE_STATUS: Readonly<{
   NONE: 'none'
@@ -78,16 +77,6 @@ export function isNoteId(docId: string): boolean {
   return docId.startsWith(NOTE_DOCID_PREFIX)
 }
 
-/** Whether the note is in the trash */
-export function isNoteInTrash(note: Pick<NoteMetadata, 'bookId'>): boolean {
-  return note.bookId === TRASH_BOOK_ID
-}
-
-/** Whether the note is a template, i.e., it lives in the template pseudo-notebook */
-export function isTemplateNote(note: Pick<NoteMetadata, 'bookId'>): boolean {
-  return note.bookId === TEMPLATE_BOOK_ID
-}
-
 /**
  * Whether the note is an official template bundled with the app. Official
  * templates are never stored in the database, so they have no `_rev`.
@@ -95,5 +84,17 @@ export function isTemplateNote(note: Pick<NoteMetadata, 'bookId'>): boolean {
 export function isOfficialTemplate(
   note: Pick<NoteMetadata, 'bookId' | '_rev'>
 ): boolean {
-  return isTemplateNote(note) && !note._rev
+  return isTemplateBookId(note.bookId) && !note._rev
+}
+
+/**
+ * Whether the note is shared publicly. A missing `share` means private; any
+ * other value than `'private'`, including `null`, counts as shared.
+ */
+export function isNoteShared(note: { share?: string | null }): boolean {
+  if (typeof note.share === 'undefined') {
+    return false
+  } else {
+    return note.share !== NOTE_VISIBILITY.PRIVATE
+  }
 }
