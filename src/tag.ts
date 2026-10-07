@@ -1,5 +1,5 @@
 import type { ValidateFunction } from 'ajv'
-import TagSchema from '../json-schema/tag.json'
+import TagSchema from '../json-schema/tag'
 import validator from '../validators/tag'
 import type { EncryptedData } from './crypto'
 import { createDocId } from './utils'

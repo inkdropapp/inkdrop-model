@@ -1,5 +1,5 @@
 import type { ValidateFunction } from 'ajv'
-import FileSchema from '../json-schema/file.json'
+import FileSchema from '../json-schema/file'
 import validator from '../validators/file'
 import type { EncryptionMetadata } from './crypto'
 import { createDocId } from './utils'

@@ -1,5 +1,5 @@
 import type { ValidateFunction } from 'ajv'
-import BookSchema from '../json-schema/book.json'
+import BookSchema from '../json-schema/book'
 import validator from '../validators/book'
 
 import type { EncryptedData } from './crypto'

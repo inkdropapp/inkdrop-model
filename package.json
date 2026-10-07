@@ -45,7 +45,7 @@
   ],
   "files": [
     "lib",
-    "json-schema",
+    "json-schema/*.json",
     "validators"
   ]
 }

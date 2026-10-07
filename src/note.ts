@@ -1,5 +1,5 @@
 import type { ValidateFunction } from 'ajv'
-import NoteSchema from '../json-schema/note.json'
+import NoteSchema from '../json-schema/note'
 import validator from '../validators/note'
 import { isTemplateBookId } from './book'
 import type { EncryptedData } from './crypto'
