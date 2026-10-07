@@ -40,7 +40,12 @@ import { isNoteId, isTrashBookId, hasConflicts } from 'inkdrop-model'
 The schemas, the precompiled validators and the validation error helpers live in the `inkdrop-model/validators` entry. It requires [ajv](https://github.com/ajv-validator/ajv) v8 as a peer dependency:
 
 ```javascript
-import { NoteSchema, BookSchema, TagSchema, FileSchema } from 'inkdrop-model/validators'
+import {
+  NoteSchema,
+  BookSchema,
+  TagSchema,
+  FileSchema
+} from 'inkdrop-model/validators'
 import { validateNote, InvalidDataError } from 'inkdrop-model/validators'
 ```
 
